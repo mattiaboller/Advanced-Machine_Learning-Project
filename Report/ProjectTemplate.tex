@@ -95,14 +95,56 @@ John Doe - MTS4128991- john.doe@email.com   \\[1cm] % Your name
 
 
 \begin{abstract}
-The ABSTRACT is not a part of the body of the report itself. Rather, the abstract is a brief summary of the report contents that is often separately circulated so potential readers can decide whether to read the report. The abstract should very concisely summarize the whole report: why it was written, what was discovered or developed, and what is claimed to be the significance of the effort. The abstract does not include figures or tables, and only the most significant numerical values or results should be given.
+    Una immagine vale più di mille parole. Sapevi che una immagine può salvare più di mille vite? Milioni di animali randagi soffrono per le strade o vengono soppressi nei rifugi ogni giorno in tutto il mondo. È chiaro aspettarsi che gli animali con foto più attraenti generino più interesse e vengano adottati più velocemente. Ma cosa rende buona una immagine? Con l'aiuto del machine learning cercheremo di determinare l'attrattiva di una foto di un animale al fine di dargli una maggiore possibilità di adozione.
+    
+
+    The ABSTRACT is not a part of the body of the report itself. Rather, the abstract is a brief summary of the report contents that is often separately circulated so potential readers can decide whether to read the report. The abstract should very concisely summarize the whole report: why it was written, what was discovered or developed, and what is claimed to be the significance of the effort. The abstract does not include figures or tables, and only the most significant numerical values or results should be given.
 \end{abstract}
 
 \section{Introduction}
-The introduction should provide a clear statement of the problem posed by the project, and why the problem is of interest. It should reflect the scenario, if available. If needed, the introduction also needs to present background information so that the reader can understand the significance of the problem. A brief summary of the hypotheses and the approach your group used to solve the problem should be given, possibly also including a concise introduction to theory or concepts used later to analyze and to discuss the results.
+    Il task scelto per questo progetto fa riferimento ad una competizione aperta sulla piattaforma Kaggle.
+
+    La competizione è finanziata da PetFinder.my, principale piattaforma per il benessere degli animali della Malesia.
+    Attualmente, PetFinder.my utilizza un misuratore di carineria per classificare le foto di animali domestici. Analizza la composizione dell'immagine e altri fattori rispetto alle prestazioni di migliaia di profili di animali. Sebbene questo strumento sia utile, è ancora in una fase sperimentale e l'algoritmo potrebbe essere migliorato.
+
+    In questa competizione, l'obiettivo è quello di stimare la Pawpularity di un animale in base alla fotografia del suo profilo. Insieme alle immagini di migliaia di animali vengono anche forniti dei metadati etichettati a mano per ogni foto. Il dataset comprende quindi sia immagini che dati tabulari.
+
+    La soluzione proposta utilizza un modello misto. Da un lato costruiamo una rete convoluzione sfruttando un approccio di fine-tuning basato su transfer learning per fare regressione sulle immagini, dall'altro una semplice rete neurale per fare regressione sui metadati. Gli output delle due reti vengono concatenati e usati come input della rete finale. (Scriverlo meglio)
+    
+
+    The introduction should provide a clear statement of the problem posed by the project, and why the problem is of interest. It should reflect the scenario, if available. If needed, the introduction also needs to present background information so that the reader can understand the significance of the problem. A brief summary of the hypotheses and the approach your group used to solve the problem should be given, possibly also including a concise introduction to theory or concepts used later to analyze and to discuss the results.
 
 
 \section{Datasets}
+    Come detto precedentemente ci vengono forniti una dataset di immagini e una dataset tabulare con i metadati.
+    In particolare:
+    I dati di training comprendono:
+    \begin{itemize}
+        \item Una cartella train che contiene le immagini di training nella forma {id}.jpg, dove {id} è un identificativo univoco del profilo dell'animale
+        \item Un file train.csv contenente i metadati di ogni singola immagine insieme al target, che è lo score di Pawpularity. La colonna id rappresenta lo stesso identificativo usato per indicizzare le immagini nella cartella train.
+    \end{itemize}
+
+    I dati di testing, dato che si tratta di una competizione, non sono disponibili. Tuttavia, vengono fornite la cartella test e il file test.csv di 8 immagini al fine di testare la submission dell'algoritmo.
+
+    I file train.csv e test.csv contengono i metadati per le immagini. Ogni metadato è etichettato con il valore 1 (Sì) o 0 (No):
+        
+    \begin{itemize}
+        \item Messa a fuoco - L'animale si staglia su uno sfondo ordinato, non troppo vicino/lontano.
+        \item Occhi - Entrambi gli occhi sono rivolti in avanti o in avanti, con almeno 1 occhio/pupilla decentemente chiaro.
+        \item Viso - Viso discretamente chiaro, rivolto in avanti o vicino al davanti.
+        \item Vicino - Singolo animale che occupa una porzione significativa della foto (circa oltre il 50\% della larghezza o dell'altezza della foto).
+        \item Azione - Animale nel mezzo di un'azione (ad es. saltare).
+        \item Accessorio: accessorio/oggetto di accompagnamento fisico o digitale (es. giocattolo, adesivo digitale), esclusi collare e guinzaglio.
+        \item Gruppo - Più di 1 animale nella foto.
+        \item Collage - Foto ritoccata digitalmente (cioè con cornice digitale, combinazione di più foto).
+        \item Umano - Umano nella foto.
+        \item Occlusione - Oggetti indesiderati specifici che bloccano una parte dell'animale (ad es. umano, gabbia o recinzione). Nota che non tutti gli oggetti bloccanti sono considerati occlusione.
+        \item Informazioni: testo o etichette personalizzati (ad es. nome dell'animale, descrizione).
+        \item Sfocatura - Notevolmente sfocato o rumoroso, soprattutto per gli occhi e il viso dell'animale. Per le voci Sfocatura, la colonna "Occhi" è sempre impostata su 0.
+    \end{itemize}
+
+
+
 In this section the available data sets must be presented. The term dataset refers to any type of information source, for example web services for geolocation fall into this category. 
 In addition, all necessary data manipulation processes, such as cleaning and enrichment with external sources, must be presented and discussed.
 
