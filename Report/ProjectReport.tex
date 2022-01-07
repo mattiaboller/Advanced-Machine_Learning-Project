@@ -59,7 +59,8 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Title}\\[0.4cm] % Title of your document
+{ \huge \bfseries PetFinder.my - Pawpularity Contest}\\[0.4cm] % Title of your document
+{ \large \textbf{Predizione Della Popolarità Di Foto Di Animali}}
 \HRule \\[1.5cm]
  
 %----------------------------------------------------------------------------------------
@@ -68,8 +69,9 @@
 
 \large
 \emph{Authors:}\\
-John Smith - XSFT901121- john.smith@email.com \\   % Your name
-John Doe - MTS4128991- john.doe@email.com   \\[1cm] % Your name
+Francesco Lenti - 865274 - f.lenti3@campus.unimib.it \\   % Your name
+Mattia Boller - 873358 - m.boller@campus.unimib.it   \\
+Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
 % If you don't want a supervisor, uncomment the two lines below and remove the section above
 %\Large \emph{Author:}\\
@@ -95,52 +97,53 @@ John Doe - MTS4128991- john.doe@email.com   \\[1cm] % Your name
 
 
 \begin{abstract}
-    Una immagine vale più di mille parole. Sapevi che una immagine può salvare più di mille vite? Milioni di animali randagi soffrono per le strade o vengono soppressi nei rifugi ogni giorno in tutto il mondo. È chiaro aspettarsi che gli animali con foto più "attraenti" generino più interesse e vengano adottati più velocemente. Ma cosa rende "attraente" una immagine? Con l'aiuto del Machine Learning cercheremo di determinare l'attrattiva di una foto di un animale al fine di dargli una maggiore possibilità di adozione.
-    
-    (TO DELETE)
-    The ABSTRACT is not a part of the body of the report itself. Rather, the abstract is a brief summary of the report contents that is often separately circulated so potential readers can decide whether to read the report. The abstract should very concisely summarize the whole report: why it was written, what was discovered or developed, and what is claimed to be the significance of the effort. The abstract does not include figures or tables, and only the most significant numerical values or results should be given.
+    Una immagine vale più di mille parole. Sapevi che un' immagine può salvare più di mille vite? Milioni di animali randagi soffrono per le strade o vengono soppressi nei rifugi ogni giorno in tutto il mondo. È chiaro aspettarsi che gli animali con foto più "attraenti" generino più interesse e vengano adottati più velocemente. Ma cosa rende "attraente" una immagine? Con l'aiuto del Deep Learning cercheremo di determinare l'attrattiva di una foto di un animale al fine di dargli una maggiore possibilità di adozione. In questo documento verranno illustrate le tecniche e le soluzioni adottate, tramite l'utilizzo di diversi modelli di deep neural network, per ottenere tale score di popolarità. 
 \end{abstract}
 
-\section{Introduction}
+\section{Introduzione}
     Il task fa riferimento ad una competizione aperta su Kaggle.
-    La competizione è finanziata da PetFinder.my, principale piattaforma per il benessere degli animali della Malesia.
-    Attualmente, PetFinder.my utilizza un misuratore di carineria per classificare le foto di animali domestici. Questo misuratore analizza la composizione della foto e altri fattori rispetto alle valutazioni di migliaia di profili di animali. Sebbene questo strumento sia utile, è ancora in una fase sperimentale e l'algoritmo potrebbe essere migliorato. L'obiettivo è quello di stimare la Pawpularity (termine coniato dalla piattaforma per indicare la popolarità di una foto) di un animale in base alla foto del suo profilo. Insieme alle foto di migliaia di animali vengono anche forniti dei metadati etichettati a mano per ogni foto. Vengono forniti quindi due dataset, uno con le foto degli animali e l'altro con i corrispettivi metadati.
-    La soluzione da noi proposta utilizza un modello multi-input. Da un lato una rete convoluzione che sfrutta un approccio di fine-tuning basato su transfer learning, dall'altro una semplice rete neurale. Gli output delle due reti vengono concatenati per ottenere l'output finale, ovvero il Pawpularity score.
-    
-
-    The introduction should provide a clear statement of the problem posed by the project, and why the problem is of interest. It should reflect the scenario, if available. If needed, the introduction also needs to present background information so that the reader can understand the significance of the problem. A brief summary of the hypotheses and the approach your group used to solve the problem should be given, possibly also including a concise introduction to theory or concepts used later to analyze and to discuss the results.
+    La competizione è finanziata da PetFinder.my, principale piattaforma per il benessere degli animali della Malesia. Attualmente, PetFinder.my utilizza un misuratore per stimare la popolarità delle foto di animali randagi ospitati all'interno di rifugi. Questo misuratore analizza le statistiche riguardanti il traffico generato dalle foto degli animali, presenti su diversi portali, e ne stima la popolarità. Sebbene questo strumento sia utile, potrebbe essere ancora migliorato. L'obiettivo finale è quello di stimare a priori la "Pawpularity" (termine coniato dalla piattaforma per indicare la popolarità di una foto) di un animale in base alla foto del suo profilo, in modo di scegliere quelle che ne faciliterebbero l'adozione. Insieme alle foto di migliaia di animali vengono anche forniti dei metadati, etichettati a mano, per ogni foto. Vengono forniti quindi due dataset, uno con le foto degli animali e l'altro con i corrispettivi metadati.
+    La soluzione da noi proposta utilizza un modello multi-input, per utilizzare tutte le informazioni a disposizione. Da un lato una rete convoluzionale che sfrutta un approccio di fine-tuning basato su transfer learning, dall'altro una semplice rete neurale fully-connected. Gli output delle due reti vengono concatenati e processati da un ulteriore layer fully-connected finale per ottenere l'output, ovvero il Pawpularity score.
 
 
 \section{Datasets}
-    Vengono forniti un dataset di immagini e un dataset tabulare contenente i metadati delle immagini. In particolare:
-    I dati di training comprendono:
+    Vengono forniti un dataset di immagini e un dataset tabulare contenente i metadati delle immagini.\\ In particolare, i dati di training comprendono:
     \begin{itemize}
-        \item Una cartella \textbf{train} contenente le immagini di training nella forma \{id\}.jpg, dove id è un identificativo univoco del profilo dell'animale;
-        \item Un file \textbf{train.csv} contenente i metadati per ogni immagine insieme al target, che è il Pawpularity score.
+        \item Una cartella \textbf{train} contenente 9912 immagini di training nella forma \textit{\{id\}.jpg}, dove id è un identificativo univoco del profilo dell'animale;
+        \item Un file \textbf{\textit{train.csv}} contenente i metadati e il Pawpularity score per ogni immagine.
     \end{itemize}
 
-    I dati di testing, dato che si tratta di una competizione aperta, non sono disponibili. Tuttavia, vengono fornite la cartella \textbf{test} e il file \textbf{test.csv} di otto immagini al fine di testare la submission dell'algoritmo.
-    Inoltre è presente anche un file \textbf{sample\_submission.csv} con un esempio di submission.
+    I dati di testing non sono disponibili, dato che si tratta di una competizione Kaggle ancora aperta al momento della stesura di questo report. Tuttavia, vengono fornite la cartella \textbf{test} e il file \textbf{\textit{test.csv}} di 8 immagini al fine di testare la submission dell'algoritmo.
+    Inoltre è presente anche un file \textbf{\textit{sample\_submission.csv}} con un esempio di submission. Dopo aver inviato la submission, il modello verrà testato su un subset pari al 25\% del dataset originale di test, contenete circa 6800 immagini, il quale verrà utilizzato solo al termine della competizione per stilare la classifica finale.
 
-    Come già detto i file train.csv e test.csv contengono i metadati per ogni immagine. Ogni metadato è etichettato con il valore 1 (Sì) o 0 (No):
+    
+
+    \subsection{Data Exploration}
+    
+    \subsubsection{Metadati}
+    Come descritto in precedenza i file \textit{train.csv} e \textit{test.csv} contengono i metadati per ogni immagine. Ogni metadato è etichettato con il valore 1 (Sì) o 0 (No):
         
     \begin{itemize}
-        \item \textbf{Focus} - L'animale si staglia su uno sfondo ordinato, non troppo vicino/lontano;
-        \item \textbf{Eyes} - Entrambi gli occhi sono rivolti in avanti o in avanti, con almeno 1 occhio/pupilla decentemente chiaro;
-        \item \textbf{Face} - Viso discretamente chiaro, rivolto in avanti o vicino al davanti;
+        \item \textbf{Focus} - L'animale è posizionato in uno sfondo ordinato, non troppo vicino/lontano;
+        \item \textbf{Eyes} - Entrambi gli occhi sono rivolti verso l'obiettivo, con almeno un occhio/pupilla decentemente chiaro;
+        \item \textbf{Face} - Viso discretamente chiaro e rivolto in avanti;
         \item \textbf{Near} - Singolo animale che occupa una porzione significativa della foto (circa oltre il 50\% della larghezza o dell'altezza della foto);
-        \item \textbf{Action} - Animale nel mezzo di un'azione (ad es. saltare);
-        \item \textbf{Accessory}: accessorio/oggetto di accompagnamento fisico o digitale (es. giocattolo, adesivo digitale), esclusi collare e guinzaglio;
+        \item \textbf{Action} - Animale nel mentre di un'azione (ad es. saltare);
+        \item \textbf{Accessory} - Accessorio/oggetto di accompagnamento fisico o digitale, come un giocattolo o un adesivo digitale, esclusi collare e guinzaglio;
         \item \textbf{Group} - Più di 1 animale nella foto;
-        \item Collage - Foto ritoccata digitalmente (cioè con cornice digitale, combinazione di più foto);
+        \item \textbf{Collage} - Foto ritoccata digitalmente;
         \item \textbf{Human} - Umano nella foto;
-        \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale (ad es. umano, gabbia o recinzione). Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
-        \item \textbf{Info}: testo o etichette personalizzati (ad es. nome dell'animale, descrizione);
+        \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale. Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
+        \item \textbf{Info} - Mesto o etichette personalizzati (ad es. nome dell'animale, descrizione);
         \item \textbf{Blur} - Notevolmente sfocato o rumoroso, soprattutto per gli occhi e il viso dell'animale. Per le voci Sfocatura, la colonna "Occhi" è sempre impostata su 0.
     \end{itemize}
 
-
-    \subsection{Data Exploration}
+    
+    
+    
+    
+    
+    
     TO-DO
 
     In this section the available data sets must be presented. The term dataset refers to any type of information source, for example web services for geolocation fall into this category. 
@@ -154,7 +157,7 @@ John Doe - MTS4128991- john.doe@email.com   \\[1cm] % Your name
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.35]{../Plot/Model-Plot.png}
+        \includegraphics[scale=0.35]{Plot/Model-Plot.png}
         \caption{Multi-input Single-output Model}
         \label{fig:model}
     \end{figure}
