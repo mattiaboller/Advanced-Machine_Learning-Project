@@ -280,11 +280,110 @@ system and how and to what extent you overcame them. Common problems are:
  difficulties involving existing software.
 
 
-\section{Results and Evaluation}
-The Results section is dedicated to presenting the actual results (i.e. measured and calculated quantities), not to discussing their meaning or interpretation. The results should be summarized using appropriate Tables and Figures (graphs or schematics). Every Figure and Table should have a legend that describes concisely what is contained or shown. Figure legends go below the figure, table legends above the table. Throughout the report, but especially in this section, pay attention to reporting numbers with an appropriate number of significant figures. 
+\newpage
 
-\section{Discussion}
-The discussion section aims at interpreting the results in light of the project's objectives. The most important goal of this section is to interpret the results so that the reader is informed of the insight or answers that the results provide. This section should also present an evaluation of the particular approach taken by the group. For example: Based on the results, how could the experimental procedure be improved? What additional, future work may be warranted? What recommendations can be drawn?
+
+\section{Risultati e Valutazione}
+
+La metrica usata per la valutazione delle performance, essendo un task di regressione, è rappresentato dal calcolo del \textbf{RMSE (Root Mean Square Error)}:
+\[
+\textrm{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} 
+\]
+con $\hat{y}_i$ il valore di popolarità predetto e $y_i$ il valore originale.
+
+
+Tale metrica è stata scelta perché, grazie all'elevazione al quadrato delle deviazioni, evita che i risultanti valori positivi e negativi possano annullarsi a vicenda. Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli, figure \ref{fig:rmse-cnn} e \ref{fig:rmse-mlp}, e successivamente, in figura \ref{fig:rmse-final}, sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
+
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.6]{Plot/CNN_RMSE.png}
+        \caption{RMSE del modello Efficient-Net B3 su train set (blu) e validation set (arancione) durante le epoche.}
+        \label{fig:rmse-cnn}
+    \end{figure}
+
+\newpage
+
+
+    \begin{figure}[h]
+        \centering
+        \vspace*{-2.5cm}
+        \includegraphics[scale=0.55]{Plot/MLP_RMSE.png}
+        \caption{RMSE del modello Multilayer Perceptron su train set (blu) e validation set (arancione) durante le epoche.}
+        \label{fig:rmse-mlp}
+    \end{figure}
+    
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.55]{Plot/FINAL_RMSE.png}
+        \caption{RMSE del Modello Finale su train set (blu) e validation set (arancione) durante le epoche.}
+        \label{fig:rmse-final}
+    \end{figure}
+    
+\newpage
+
+
+\subsection{Confronto Risultati}
+
+
+Nella tabella \ref{table:rmse} vengono raffigurati i valori migliori ottenuti sul validation set per le varie architetture. La figura \ref{fig:rmse-all} mostra l'andamento della metrica RMSE dei differenti modelli nelle varie epoche.
+
+\vspace{1cm}
+
+\begin{table}[h]
+\caption{Confronto RMSE ottenuta tra i diversi modelli sul validation set.}
+  \vspace{3mm}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Modello}   & \textbf{RMSE Validation} \\ \hline \hline
+Efficient-Net B3      & 1               \\ \hline
+MLP       & 1               \\ \hline
+Efficient-Net B3  + MLP & 1               \\ \hline
+\end{tabular}
+\label{table:rmse}
+\end{table}
+
+\vspace{1cm}
+
+\begin{figure}[h]
+    \centering
+    
+    \includegraphics[scale=0.6]{Plot/ALL_RMSE.png}
+    \caption{RMSE modelli a confronto.}
+    \label{fig:rmse-all}
+\end{figure}
+
+
+
+
+
+\newpage
+
+
+\subsection{Grad CAM}
+
+Un problema noto del deep learning è rappresentato dal fatto che i modelli creati siano "black box", ovvero che sia difficilmente spiegabile come realmente le informazioni siano trattate all'interno dei vari layers. Per analizzare i risultati ottenuti è stato ritenuto opportuno effettuare un ulteriore studio su come la rete convoluzionale ragionasse sulle immagini per ottenere lo score di popolarità. Questo è possibile utilizzando lo strumento \textbf{Grad CAM\cite{2019}}. Tale metodo consente di produrre una spiegazione visiva di ciò che la rete osserva, determinando quali sono gli aspetti e le features che più influenzano lo score finale. E' possibile notare nella figura \ref{fig:grad-cam} come la rete si vada a focalizzare maggiormente sull'animale nel caso in cui l'immagine risulti pulita da oggetti di disturbo; al contrario la rete andrà a dare maggior importanza all'ambiente circostante piuttosto che al solo animale.
+
+\vspace{1cm}
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.6]{Plot/GRAD-CAM.png}
+        \caption{Confronto tra due Grad CAM ottenute da immagini con diversi score: quella di sinistra con popolarità più alta, mentre quella di destra più bassa.}
+        \label{fig:grad-cam}
+\end{figure}
+    
+
+    
+    
+\newpage
+
+
+\section{Considerazioni}
+
+I risultati mostrano come le performance ottenute dal modello finale siano migliori di quelle ottenute tramite il solo fine-tuning sulla rete Efficient-Net B3 e nettamente migliori di quelli del Multilayer Perceptron sui meta-dati. Questo è dovuto da un utilizzo di tutte le informazioni disponibili e non solo le immagini: il layer fully-connected del modello finale riesce a dare i giusti pesi alle informazioni ottenute dalla rete convoluzionale, per le immagini, e da quella fully-connected, per i meta-dati, migliorando il risultato finale. Le performance ottenute risultano migliori di quelle raggiunte da altri team kaggle utilizzanti reti convoluzionali allo stato dell'arte. I migliori risultati tuttavia vengono ottenuti da team che sfruttando un altro tipo di modello, ovvero i \textbf{transformer}, migliorando lo score finale di un punto rispetto all'utilizzo di reti convoluzionali.
 
 
 \section{Conclusions}
