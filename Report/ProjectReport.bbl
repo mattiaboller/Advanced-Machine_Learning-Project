@@ -21,8 +21,25 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Lee2015}
-J.~Lee, ``{Smart Factory Systems},'' \emph{Informatik-Spektrum}, vol.~38,
-  no.~3, pp. 230--235, 2015.
+\bibitem{tan2020efficientnet}
+M.~Tan and Q.~V. Le, ``Efficientnet: Rethinking model scaling for convolutional
+  neural networks,'' 2020.
+
+\bibitem{xie2020selftraining}
+Q.~Xie, M.-T. Luong, E.~Hovy, and Q.~V. Le, ``Self-training with noisy student
+  improves imagenet classification,'' 2020.
+
+\bibitem{yuan2020hybriddnns}
+Z.~Yuan, Y.~Jiang, J.~Li, and H.~Huang, ``Hybrid-dnns: Hybrid deep neural
+  networks for mixed inputs,'' 2020.
+
+\bibitem{2019}
+\BIBentryALTinterwordspacing
+R.~R. Selvaraju, M.~Cogswell, A.~Das, R.~Vedantam, D.~Parikh, and D.~Batra,
+  ``Grad-cam: Visual explanations from deep networks via gradient-based
+  localization,'' \emph{International Journal of Computer Vision}, vol. 128,
+  no.~2, p. 336–359, Oct 2019. [Online]. Available:
+  \url{http://dx.doi.org/10.1007/s11263-019-01228-7}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

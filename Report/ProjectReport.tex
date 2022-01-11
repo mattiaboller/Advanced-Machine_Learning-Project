@@ -32,7 +32,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[12pt]{article}
-\usepackage[english]{babel}
+\usepackage[italian]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -82,13 +82,13 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 %	DATE SECTION
 %----------------------------------------------------------------------------------------
 
-{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+{\large \today}\\[1cm] % Date, change the \today to a set date if you want to be precise
 
 %----------------------------------------------------------------------------------------
 %	LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-\includegraphics{logo.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+\includegraphics[scale=0.85]{logo.png}\\ % Include a department/university logo - this will require the graphicx package
  
 %----------------------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
     \subsubsection{Immagini}
     Per quanto riguarda il dataset delle immagini andremo a mostrare alcune foto in base al pawpularity score assegnato.
-    Analizziamo quindi le immagini partendo dai voti più bassi andando verso quelli più alti. Per non sporcare troppo il report sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
+    Analizziamo quindi le immagini partendo dai voti più bassi andando verso quelli più alti. Per non rendere il report troppo prolisso, sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{Plot/pawpularity_1.jpg}
@@ -158,7 +158,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
     Osserviamo come la distribuzione dello score sia concentrata principalmente tra i valori 20 e 50. È facile osservare anche una forte presenza di immagini con score uguale a 100.
     Successivamente analizziamo la distribuzione del target per ogni singola feature del dataset.
-    Per fare ciò usiamo degli istogrammi, plottiamo il Pawpularity score sull'asse x e la somma degli 0s e degli 1s di ogni feature sull'asse y. Questo ci può aiutare a visualizzare se alcune feature impattano più di altre nel calcolo del Pawpularity score. Per ogni feature inoltre vengono mostrati degli esempi di immagini per contestualizzare meglio il significato della feature stessa.
+    Per fare ciò usiamo degli istogrammi, mostriamo il Pawpularity score sull'asse x e la somma dei valori di ogni feature sull'asse y. Questo ci può aiutare a visualizzare se alcune feature impattano più di altre nel calcolo del Pawpularity score. Per ogni feature inoltre vengono mostrati degli esempi di immagini per contestualizzare meglio il significato della feature stessa.
 
     \begin{itemize}
         \item \textbf{Focus} - L'animale è posizionato su uno sfondo ordinato, non troppo vicino/lontano;
@@ -247,10 +247,10 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
         \end{figure}
     \end{itemize}
     
-    Intuitivamente possiamo dire che questi grafici non ci dicono molto. La distribuzione del Pawpularity score è simile per ogni feature, in altre parole nessuna feature in particolare sembra influenzare particolarmente il Pawpularity score.
+    Intuitivamente è possibile affermare che questi grafici non diano molte informazioni. La distribuzione del Pawpularity score è simile per ogni feature, in altre parole nessuna feature sembra influenzare particolarmente il Pawpularity score.
     \vfill
 
-\section{The Methodological Approach}
+\section{Aprroccio metodologico}
 
     La competizione proposta da PetFinder.my si presenta come un problema di regressione, con l'obiettivo di creare un modello capace di assegnare un punteggio di attrattività, 
     compreso tra 0 e 100, ad una determinata foto di un animale.
@@ -283,22 +283,17 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
         dove $\alpha$, $\beta$, $\gamma$ sono costanti determinabili da una piccola grid search.
         
         La versione B7 di EfficientNet ha raggiunto una top-1 accuracy su ImageNet pari al 84.3\%, raggiungendo lo stato dell'arte a parità di Gpipe pur essendo 8.4 volte più piccola e 6.1 volte più veloce nell'inferenza.
-        EfficientNet si è inoltre dimostrata molto performante in caso di utilizzo in transfer learning, in particolare raggiungendo un'accuracy pari al 91.7\% su Cifar-100 e al 98.8\% 
-        su Flowers. Nel caso del problema trattato in questo documento, si è scelta la versione B3, la quale prende in input immagini di dimensione 300x300, decisione dettata dal trade-off tra compattezza
-        (e quindi limiti hardware) e performance della rete. 
+        EfficientNet si è inoltre dimostrata molto performante in caso di utilizzo in transfer learning, in particolare raggiungendo un'accuracy pari al 91.7\% su Cifar-100 e al 98.8\% su Flowers. Nel caso del problema trattato in questo documento, si è scelta la versione B3, la quale prende in input immagini di dimensione 300x300, decisione dettata dal trade-off tra compattezza, quindi limiti hardware, e performance della rete. \cite{tan2020efficientnet}
         Le performance delle varie versioni di EfficientNet su ImageNet rispetto ad altre reti sono mostrate in figura \ref{fig:efficientnet}.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
-            \includegraphics[scale=0.2]{Plot/efficientnet.png}
+            \includegraphics[scale=0.15]{Plot/efficientnet.png}
             \caption{Performance di EfficientNet rispetto ad altre reti.}
             \label{fig:efficientnet}
         \end{figure}
         
-        Inoltre, i pesi importati, sono quelli ottenuti tramite la tecnica di training Noisy Student. Noisy Student è una metodo di apprendimento semi-supervisionato che si basa sull'allenare
-        un modello (teacher) con immagini etichettate, utilizzarlo per etichettare nuove immagini e allenare un nuovo modello (student), della stessa grandezza o maggiore, con le immagini iniziali e 
-        quelle nuove ottenute dal primo modello aggiugendo del rumore. Questi passi vengono poi ripetuti più volte, invertendo teacher e student. Attraverso questa tecnica, utilizzando
-        300M di immagini non etichettate, EfficientNet-B7 ha raggiunto una top-1 accuracy su ImageNet pari al 88.4\%.
+        Inoltre, i pesi importati, sono quelli ottenuti tramite la tecnica di training Noisy Student. Noisy Student è una metodo di apprendimento semi-supervisionato che si basa sull'allenare un modello (teacher) con immagini etichettate, utilizzarlo per etichettare nuove immagini e allenare un nuovo modello (student), della stessa grandezza o maggiore, con le immagini iniziali e quelle nuove ottenute dal primo modello aggiugendo del rumore. Questi passi vengono poi ripetuti più volte, invertendo teacher e student. Attraverso questa tecnica, utilizzando 300M di immagini non etichettate, EfficientNet-B7 "Noisy Student" ha raggiunto una top-1 accuracy su ImageNet pari al 88.4\%. Questo approccio è stato scelto inoltre perché consente una generalizzazione migliore. \cite{xie2020selftraining}
 
         In coda alla rete pre-allenata importata, sono stati aggiunti dei layer fully-connected per adattare il modello al problema di regressione di PetFinder.my. Di seguito
         è specificata l'architettura della sezione aggiunta:
@@ -311,8 +306,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
             \item \textbf{Dropout} - 10\% dei neuroni eliminati.
             \item \textbf{Dense} - 1 neurone, Linear
         \end{itemize}
-        La funzione di loss scelta è stata la Mean Squared Error, mentre per monitorare le performance è stata utilizzata come metrica la Root Mean Squared Error, così da 
-        avere un'idea sulla reale grandezza dell'errore. Come algoritmo di ottimizzazione è stato selezionato Adam.
+        La funzione di loss scelta è stata la Mean Squared Error, mentre per monitorare le performance è stata utilizzata come metrica la Root Mean Squared Error. Come algoritmo di ottimizzazione è stato selezionato Adam.
 
     \subsection{Fully-connected neural network}
     \label{mlp}
@@ -327,38 +321,25 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     \end{itemize}
     Anche in questo caso, come per la rete convoluzionale, si sono utilizzate MSE come funzione di loss, RMSE come metrica delle performance del modello e Adam come algoritmo di ottimizzazione.
 
-    \subsection{Multi-input \& mixed data neural network}
+    \subsection{Hybrid DNN}
     \label{mulinput}
     L'ipotesi secondo cui predizioni più accurate si possono ottenere combinando le informazioni derivanti dalle foto degli animali e dai metadati ad esse allegati, ha portato alla
     costruzione di un terzo modello, combinazione dei due precedentemente descritti.
 
-    Il modello in questione si presenta come una rete neurale multi-input, costituita dalla rete convoluzionale illustrata nel paragrafo \ref{cnn} e dalla rete fully-connected di cui si
-    indicano le specifiche nel paragrafo \ref{mlp}, i quali output vengono concatenati e processati da due ulteriori layer.
+    Il modello in questione si presenta come una rete neurale ibrida \cite{yuan2020hybriddnns}, costituita dalla rete convoluzionale illustrata nel paragrafo \ref{cnn} e dalla rete fully-connected di cui si indicano le specifiche nel paragrafo \ref{mlp}, i quali output vengono concatenati e processati da due ulteriori layer.
     L'architettura proposta è mostrata in figura \ref{fig:model}.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.35]{Plot/Model-Plot.png}
-            \caption{Architettura Multi-input Single-output Mixed-data}
+            \caption{Architettura Hybrid DNN}
             \label{fig:model}
         \end{figure}
 
     \subsection{Training}
     Il training del modello finale descritto nel paragrafo \ref{mulinput}, è avvenuto allenando prima separatamente i due modelli di cui è composto. Entrambe le reti sono state 
-    allenate utilizzando una grandezza di batch di 32, per un massimo di 15 epoche, applicando in entrambi i casi early-stopping per evitare casi di overfitting. Di seguito, 
-    in figura \ref{fig:loss_cnn} e in figura \ref{fig:loss_mlp} sono presentati i grafici del valore di loss durante i training della rete convoluzionale e della rete fully-connected.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/loss-cnn.png}
-            \caption{Grafico del valore di loss durante il training della rete CNN}
-            \label{fig:loss_cnn}
-        \end{figure}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/loss-mlp.png}
-            \caption{Grafico del valore di loss durante il training della rete Fully-Connected}
-            \label{fig:loss_mlp}
-        \end{figure}
-    I due modelli allenati sono stati successivamente uniti per andare a formare la rete multi-input e i loro pesi sono stati bloccati, così da poter effettuare il training 
+    allenate utilizzando una grandezza di batch di 32, per un massimo di 15 epoche, applicando in entrambi i casi early-stopping per evitare casi di overfitting. 
+
+    I due modelli allenati sono stati successivamente uniti per andare a formare la rete ibrida e i loro pesi sono stati bloccati, così da poter effettuare il training 
     solo sulla sezione aggiunta in seguito alla concatenzaione dei risultati.
 
     Durante la fase di training del terzo modello, si è riscontrato un fenomeno di blocco in un minimo locale, il quale impediva miglioramenti delle performance. Il problema
@@ -371,14 +352,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
             \label{fig:learning_rate}
         \end{figure}
 
-    Il modello multi-input è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso limitate da early-stopping. In figura \ref{fig:loss_mulinput} è
-    presentato il grafico del valore di loss durante il training del modello finale.
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[scale=0.5]{Plot/loss-final.png}
-            \caption{Grafico del valore di loss durante il training della rete Multi-input}
-            \label{fig:loss_mulinput}
-        \end{figure}
+    Il modello ibrido è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso limitate da early-stopping.
 
 
 
@@ -388,14 +362,14 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
 \section{Risultati e Valutazione}
 
-La metrica usata per la valutazione delle performance, essendo un task di regressione, è rappresentato dal calcolo del \textbf{RMSE (Root Mean Square Error)}:
+La metrica usata per la valutazione delle performance, essendo un task di regressione, è rappresentata dal calcolo del \textbf{RMSE (Root Mean Square Error)}:
 \[
 \textrm{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} 
 \]
 con $\hat{y}_i$ il valore di popolarità predetto e $y_i$ il valore originale.
 
 
-Tale metrica è stata scelta perché, grazie all'elevazione al quadrato delle deviazioni, evita che i risultanti valori positivi e negativi possano annullarsi a vicenda. Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli, figure \ref{fig:rmse-cnn} e \ref{fig:rmse-mlp}, e successivamente, in figura \ref{fig:rmse-final}, sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
+Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli, figure \ref{fig:rmse-cnn} e \ref{fig:rmse-mlp}, e successivamente, in figura \ref{fig:rmse-final}, sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
 
 
     \begin{figure}[h]
@@ -420,7 +394,7 @@ Tale metrica è stata scelta perché, grazie all'elevazione al quadrato delle de
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.55]{Plot/FINAL_RMSE.png}
-        \caption{RMSE del Modello Finale su train set (blu) e validation set (arancione) durante le epoche.}
+        \caption{RMSE del modello Hybrid su train set (blu) e validation set (arancione) durante le epoche.}
         \label{fig:rmse-final}
     \end{figure}
     
@@ -443,7 +417,7 @@ Nella tabella \ref{table:rmse} vengono raffigurati i valori migliori ottenuti su
 \textbf{Modello}   & \textbf{RMSE Validation} \\ \hline \hline
 Efficient-Net B3      & 1               \\ \hline
 MLP       & 1               \\ \hline
-Efficient-Net B3  + MLP & 1               \\ \hline
+Hybrid & 1               \\ \hline
 \end{tabular}
 \label{table:rmse}
 \end{table}
@@ -467,7 +441,7 @@ Efficient-Net B3  + MLP & 1               \\ \hline
 
 \subsection{Grad CAM}
 
-Un problema noto del deep learning è rappresentato dal fatto che i modelli creati siano "black box", ovvero che sia difficilmente spiegabile come realmente le informazioni siano trattate all'interno dei vari layers. Per analizzare i risultati ottenuti è stato ritenuto opportuno effettuare un ulteriore studio su come la rete convoluzionale ragionasse sulle immagini per ottenere lo score di popolarità. Questo è possibile utilizzando lo strumento \textbf{Grad CAM\cite{2019}}. Tale metodo consente di produrre una spiegazione visiva di ciò che la rete osserva, determinando quali sono gli aspetti e le features che più influenzano lo score finale. E' possibile notare nella figura \ref{fig:grad-cam} come la rete si vada a focalizzare maggiormente sull'animale nel caso in cui l'immagine risulti pulita da oggetti di disturbo; al contrario la rete andrà a dare maggior importanza all'ambiente circostante piuttosto che al solo animale.
+Un problema noto del deep learning è rappresentato dal fatto che i modelli creati siano "black box", ovvero che sia difficilmente spiegabile come realmente le informazioni siano trattate all'interno dei vari layers. Per analizzare i risultati ottenuti è stato ritenuto opportuno effettuare un ulteriore studio su come la rete convoluzionale ragionasse sulle immagini per ottenere lo score di popolarità. Questo è possibile utilizzando lo strumento \textbf{Grad CAM}\cite{2019}. Tale metodo consente di produrre una spiegazione visiva di ciò che la rete osserva, determinando quali sono gli aspetti e le features che più influenzano lo score finale. E' possibile notare nella figura \ref{fig:grad-cam} come la rete si vada a focalizzare maggiormente sull'animale nel caso in cui l'immagine risulti pulita da oggetti di disturbo; al contrario, se l'immagine presenta disturbi di vario genere, la rete andrà a dare maggior importanza all'ambiente circostante piuttosto che al solo animale.
 
 \vspace{1cm}
 
@@ -486,15 +460,16 @@ Un problema noto del deep learning è rappresentato dal fatto che i modelli crea
 
 \section{Considerazioni}
 
-I risultati mostrano come le performance ottenute dal modello finale siano migliori di quelle ottenute tramite il solo fine-tuning sulla rete Efficient-Net B3 e nettamente migliori di quelli del Multilayer Perceptron sui meta-dati. Questo è dovuto da un utilizzo di tutte le informazioni disponibili e non solo le immagini: il layer fully-connected del modello finale riesce a dare i giusti pesi alle informazioni ottenute dalla rete convoluzionale, per le immagini, e da quella fully-connected, per i meta-dati, migliorando il risultato finale. Le performance ottenute risultano migliori di quelle raggiunte da altri team kaggle utilizzanti reti convoluzionali allo stato dell'arte. I migliori risultati tuttavia vengono ottenuti da team che sfruttando un altro tipo di modello, ovvero i \textbf{transformer}, migliorando lo score finale di un punto rispetto all'utilizzo di reti convoluzionali.
+I risultati mostrano come le performance ottenute dal modello finale siano migliori di quelle ottenute tramite il solo fine-tuning sulla rete Efficient-Net B3 e nettamente migliori di quelli del Multilayer Perceptron sui meta-dati. Questo è dovuto da un utilizzo di tutte le informazioni disponibili e non solo le immagini: il layer fully-connected del modello finale riesce a dare i giusti pesi alle informazioni ottenute dalla rete convoluzionale, per le immagini, e da quella fully-connected, per i meta-dati, migliorando il risultato finale. Le performance ottenute risultano migliori di quelle raggiunte da altri team kaggle utilizzanti reti convoluzionali allo stato dell'arte. I migliori risultati tuttavia vengono ottenuti da team che sfruttano un altro tipo di modello, ovvero i \textbf{transformer}, migliorando lo score finale di un punto rispetto all'utilizzo di reti convoluzionali.
 
 
-\section{Conclusions}
-Conclusions should summarize the central points made in the Discussion section, reinforcing for the reader the value and implications of the work. If the results were not definitive, specific future work that may be needed can be (briefly) described. The conclusions should never contain ``surprises''. Therefore, any conclusions should be based on observations and data already discussed. It is considered extremely bad form to introduce new data in the conclusions.
+\section{Conclusioni e sviluppi futuri}
+L'obiettivo di questo caso di studio è stato determinare se, l'uso congiunto di architetture su tipologie di dati diverse, potesse portare effettivamente a migliori risultati rispetto
+alle singole.
 
-\section*{References}
+L'ipotesi formulata, sebbene non supportata da una grande quantità di materiale presente in letteratura, è stata confermata dai risultati ottenuti portando un miglioramento significativo delle performance. Tuttavia i risultati ottenuti non sono competitivi rispetto a quelli derivanti dall'utilizzo di nuove tecniche avanzate, quali transformer.
 
-The references section should contain complete citations following standard form.  The references should be numbered and listed in the order they were cited in the body of the report. In the text of the report, a particular reference can be cited by using a numerical number in brackets as \cite{Lee2015} that corresponds to its number in the reference list. \LaTeX provides several styles to format the references
+Un possibile sviluppo futuro, può essere la sostitusione della rete convoluzionale con un transformer e l'utilizzo di una risoluzione maggiore per le immagini, migliorie che devono essere necessariamente supportate da un hardware adeguato.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references.bib}
