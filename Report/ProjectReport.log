@@ -1,0 +1,602 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.5)  11 JAN 2022 10:32
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex
+(c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2021-11-22> (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/12/30 3.69 The Babel package
+\babel@savecnt=\count191
+\U@D=\dimen139
+\l@unhyphenated=\language79
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count192
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count193
+\uc@combtoks=\toks18
+\uc@combtoksb=\toks19
+\uc@temptokena=\toks20
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen140
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen141
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count194
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count195
+\leftroot@=\count196
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count197
+\DOTSCASE@=\count198
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen142
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count199
+\c@MaxMatrixCols=\count266
+\dotsspace@=\muskip16
+\c@parentequation=\count267
+\dspbrk@lvl=\count268
+\tag@help=\toks22
+\row@=\count269
+\column@=\count270
+\maxfields@=\count271
+\andhelp@=\toks23
+\eqnshift@=\dimen143
+\alignsep@=\dimen144
+\tagshift@=\dimen145
+\tagwidth@=\dimen146
+\totwidth@=\dimen147
+\lineht@=\dimen148
+\@envbody=\toks24
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks26
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/todonotes\todonotes.sty
+Package: todonotes 2021/06/04 v1.1.5 Todonotes source and documentation.
+Package: todonotes 2021/06/04
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count272
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks29
+\pgfutil@tempdima=\dimen151
+\pgfutil@tempdimb=\dimen152
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common-lists.tex)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box52
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks32
+))
+\pgf@x=\dimen153
+\pgf@y=\dimen154
+\pgf@xa=\dimen155
+\pgf@ya=\dimen156
+\pgf@xb=\dimen157
+\pgf@yb=\dimen158
+\pgf@xc=\dimen159
+\pgf@yc=\dimen160
+\pgf@xd=\dimen161
+\pgf@yd=\dimen162
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count273
+\c@pgf@countb=\count274
+\c@pgf@countc=\count275
+\c@pgf@countd=\count276
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
+\pgf@sys@id@count=\count277
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+))) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count278
+\pgfsyssoftpath@bigbuffer@items=\count279
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen163
+\pgfmath@count=\count280
+\pgfmath@box=\box53
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex))) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count281
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen164
+\pgf@picmaxx=\dimen165
+\pgf@picminy=\dimen166
+\pgf@picmaxy=\dimen167
+\pgf@pathminx=\dimen168
+\pgf@pathmaxx=\dimen169
+\pgf@pathminy=\dimen170
+\pgf@pathmaxy=\dimen171
+\pgf@xx=\dimen172
+\pgf@xy=\dimen173
+\pgf@yx=\dimen174
+\pgf@yy=\dimen175
+\pgf@zx=\dimen176
+\pgf@zy=\dimen177
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen178
+\pgf@path@lasty=\dimen179
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen180
+\pgf@shorten@start@additional=\dimen181
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box54
+\pgf@hbox=\box55
+\pgf@layerbox@main=\box56
+\pgf@picture@serial@count=\count282
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen182
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen183
+\pgf@pt@y=\dimen184
+\pgf@pt@temp=\dimen185
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen186
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen187
+\pgf@sys@shading@range@num=\count283
+\pgf@shadingcount=\count284
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box57
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box58
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen188
+\pgf@nodesepend=\dimen189
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)
+\pgffor@iter=\dimen190
+\pgffor@skip=\dimen191
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
+)) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count285
+\pgfplotmarksize=\dimen192
+)
+\tikz@lastx=\dimen193
+\tikz@lasty=\dimen194
+\tikz@lastxsaved=\dimen195
+\tikz@lastysaved=\dimen196
+\tikz@lastmovetox=\dimen197
+\tikz@lastmovetoy=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen256
+\tikz@figbox=\box59
+\tikz@figbox@bg=\box60
+\tikz@tempbox=\box61
+\tikz@tempbox@bg=\box62
+\tikztreelevel=\count286
+\tikznumberofchildren=\count287
+\tikznumberofcurrentchild=\count288
+\tikz@fig@count=\count289
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count290
+\pgfmatrixcurrentcolumn=\count291
+\pgf@matrix@numberofcolumns=\count292
+)
+\tikz@expandcount=\count293
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count294
+\calc@Bcount=\count295
+\calc@Adimen=\dimen257
+\calc@Bdimen=\dimen258
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count296
+\calc@Cskip=\skip54
+)
+\c@@todonotes@numberoftodonotes=\count297
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count298
+\float@exts=\toks41
+\float@box=\box63
+\@float@everytoks=\toks42
+\@floatcapt=\box64
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count299
+\l__pdf_internal_box=\box65
+) (ProjectReport.aux)
+\openout1 = `ProjectReport.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count300
+\scratchdimen=\dimen259
+\scratchbox=\box66
+\nofMPsegments=\count301
+\nofMParguments=\count302
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count303
+\MPscratchDim=\dimen260
+\MPnumerator=\count304
+\makeMPintoPDFobject=\count305
+\everyMPtoPDFconversion=\toks44
+) (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 42.
+
+(C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+<logo.png, id=4, 160.6pt x 172.645pt>
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 91.
+(pdftex.def)             Requested size: 160.5996pt x 172.64456pt.
+ [1
+
+{C:/Users/Mattia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2 <./logo.png (PNG copy)>] [1]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 113.
+ (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
+<Plot/pawpularity_1.jpg, id=21, 476.37975pt x 157.18726pt>
+File: Plot/pawpularity_1.jpg Graphic file (type jpg)
+<use Plot/pawpularity_1.jpg>
+Package pdftex.def Info: Plot/pawpularity_1.jpg  used on input line 129.
+(pdftex.def)             Requested size: 238.18929pt x 78.59343pt.
+ [2]
+<Plot/pawpularity_50.jpg, id=28, 469.755pt x 160.1985pt>
+File: Plot/pawpularity_50.jpg Graphic file (type jpg)
+<use Plot/pawpularity_50.jpg>
+Package pdftex.def Info: Plot/pawpularity_50.jpg  used on input line 136.
+(pdftex.def)             Requested size: 234.87692pt x 80.09904pt.
+<Plot/pawpularity_100.jpg, id=29, 466.74374pt x 162.6075pt>
+File: Plot/pawpularity_100.jpg Graphic file (type jpg)
+<use Plot/pawpularity_100.jpg>
+Package pdftex.def Info: Plot/pawpularity_100.jpg  used on input line 143.
+(pdftex.def)             Requested size: 233.37129pt x 81.30354pt.
+<Plot/distribution_target.jpg, id=30, 463.13025pt x 249.93375pt>
+File: Plot/distribution_target.jpg Graphic file (type jpg)
+<use Plot/distribution_target.jpg>
+Package pdftex.def Info: Plot/distribution_target.jpg  used on input line 154.
+(pdftex.def)             Requested size: 370.5047pt x 199.94727pt.
+ [3 <./Plot/pawpularity_1.jpg> <./Plot/pawpularity_50.jpg> <./Plot/pawpularity_100.jpg>]
+<Plot/distribution_subjectfocus.jpg, id=34, 622.12425pt x 210.7875pt>
+File: Plot/distribution_subjectfocus.jpg Graphic file (type jpg)
+<use Plot/distribution_subjectfocus.jpg>
+Package pdftex.def Info: Plot/distribution_subjectfocus.jpg  used on input line 167.
+(pdftex.def)             Requested size: 311.06136pt x 105.3935pt.
+<Plot/distribution_eyes.jpg, id=35, 673.3155pt x 210.18526pt>
+File: Plot/distribution_eyes.jpg Graphic file (type jpg)
+<use Plot/distribution_eyes.jpg>
+Package pdftex.def Info: Plot/distribution_eyes.jpg  used on input line 174.
+(pdftex.def)             Requested size: 336.65692pt x 105.09236pt.
+ [4 <./Plot/distribution_target.jpg> <./Plot/distribution_subjectfocus.jpg>]
+<Plot/distribution_face.jpg, id=39, 673.3155pt x 210.18526pt>
+File: Plot/distribution_face.jpg Graphic file (type jpg)
+<use Plot/distribution_face.jpg>
+Package pdftex.def Info: Plot/distribution_face.jpg  used on input line 181.
+(pdftex.def)             Requested size: 336.65692pt x 105.09236pt.
+<Plot/distribution_near.jpg, id=40, 641.9985pt x 210.7875pt>
+File: Plot/distribution_near.jpg Graphic file (type jpg)
+<use Plot/distribution_near.jpg>
+Package pdftex.def Info: Plot/distribution_near.jpg  used on input line 188.
+(pdftex.def)             Requested size: 320.99846pt x 105.3935pt.
+<Plot/distribution_action.jpg, id=41, 643.203pt x 211.38976pt>
+File: Plot/distribution_action.jpg Graphic file (type jpg)
+<use Plot/distribution_action.jpg>
+Package pdftex.def Info: Plot/distribution_action.jpg  used on input line 195.
+(pdftex.def)             Requested size: 321.60071pt x 105.69461pt.
+ [5 <./Plot/distribution_eyes.jpg> <./Plot/distribution_face.jpg> <./Plot/distribution_near.jpg>]
+<Plot/distribution_accessory.jpg, id=46, 641.9985pt x 210.18526pt>
+File: Plot/distribution_accessory.jpg Graphic file (type jpg)
+<use Plot/distribution_accessory.jpg>
+Package pdftex.def Info: Plot/distribution_accessory.jpg  used on input line 202.
+(pdftex.def)             Requested size: 320.99846pt x 105.09236pt.
+<Plot/distribution_group.jpg, id=47, 673.3155pt x 209.583pt>
+File: Plot/distribution_group.jpg Graphic file (type jpg)
+<use Plot/distribution_group.jpg>
+Package pdftex.def Info: Plot/distribution_group.jpg  used on input line 209.
+(pdftex.def)             Requested size: 336.65692pt x 104.79123pt.
+<Plot/distribution_collage.jpg, id=48, 628.749pt x 210.18526pt>
+File: Plot/distribution_collage.jpg Graphic file (type jpg)
+<use Plot/distribution_collage.jpg>
+Package pdftex.def Info: Plot/distribution_collage.jpg  used on input line 216.
+(pdftex.def)             Requested size: 314.37372pt x 105.09236pt.
+ [6 <./Plot/distribution_action.jpg> <./Plot/distribution_accessory.jpg> <./Plot/distribution_group.jpg>]
+<Plot/distribution_human.jpg, id=52, 641.9985pt x 210.7875pt>
+File: Plot/distribution_human.jpg Graphic file (type jpg)
+<use Plot/distribution_human.jpg>
+Package pdftex.def Info: Plot/distribution_human.jpg  used on input line 223.
+(pdftex.def)             Requested size: 320.99846pt x 105.3935pt.
+<Plot/distribution_occlusion.jpg, id=53, 673.3155pt x 209.583pt>
+File: Plot/distribution_occlusion.jpg Graphic file (type jpg)
+<use Plot/distribution_occlusion.jpg>
+Package pdftex.def Info: Plot/distribution_occlusion.jpg  used on input line 230.
+(pdftex.def)             Requested size: 336.65692pt x 104.79123pt.
+<Plot/distribution_info.jpg, id=54, 627.5445pt x 211.38976pt>
+File: Plot/distribution_info.jpg Graphic file (type jpg)
+<use Plot/distribution_info.jpg>
+Package pdftex.def Info: Plot/distribution_info.jpg  used on input line 237.
+(pdftex.def)             Requested size: 313.77147pt x 105.69461pt.
+ [7 <./Plot/distribution_collage.jpg> <./Plot/distribution_human.jpg> <./Plot/distribution_occlusion.jpg>]
+<Plot/distribution_blur.jpg, id=58, 625.73775pt x 208.3785pt>
+File: Plot/distribution_blur.jpg Graphic file (type jpg)
+<use Plot/distribution_blur.jpg>
+Package pdftex.def Info: Plot/distribution_blur.jpg  used on input line 244.
+(pdftex.def)             Requested size: 312.8681pt x 104.18898pt.
+ [8 <./Plot/distribution_info.jpg> <./Plot/distribution_blur.jpg>] [9]
+<Plot/efficientnet.png, id=65, 1606.0pt x 1266.7325pt>
+File: Plot/efficientnet.png Graphic file (type png)
+<use Plot/efficientnet.png>
+Package pdftex.def Info: Plot/efficientnet.png  used on input line 293.
+(pdftex.def)             Requested size: 321.19432pt x 253.34201pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10] [11 <./Plot/efficientnet.png>]
+<Plot/Model-Plot.png, id=76, 1033.8625pt x 1406.25375pt>
+File: Plot/Model-Plot.png Graphic file (type png)
+<use Plot/Model-Plot.png>
+Package pdftex.def Info: Plot/Model-Plot.png  used on input line 340.
+(pdftex.def)             Requested size: 361.8573pt x 492.19618pt.
+ [12]
+<Plot/loss-cnn.png, id=80, 621.32124pt x 339.2675pt>
+File: Plot/loss-cnn.png Graphic file (type png)
+<use Plot/loss-cnn.png>
+Package pdftex.def Info: Plot/loss-cnn.png  used on input line 351.
+(pdftex.def)             Requested size: 310.65987pt x 169.63333pt.
+ [13 <./Plot/Model-Plot.png>]
+<Plot/loss-mlp.png, id=85, 621.32124pt x 339.2675pt>
+File: Plot/loss-mlp.png Graphic file (type png)
+<use Plot/loss-mlp.png>
+Package pdftex.def Info: Plot/loss-mlp.png  used on input line 357.
+(pdftex.def)             Requested size: 310.65987pt x 169.63333pt.
+ [14 <./Plot/loss-cnn.png>]
+<Plot/learning-rate.png, id=90, 628.3475pt x 330.23375pt>
+File: Plot/learning-rate.png Graphic file (type png)
+<use Plot/learning-rate.png>
+Package pdftex.def Info: Plot/learning-rate.png  used on input line 369.
+(pdftex.def)             Requested size: 314.17297pt x 165.11646pt.
+ [15 <./Plot/loss-mlp.png>]
+<Plot/loss-final.png, id=95, 628.3475pt x 339.2675pt>
+File: Plot/loss-final.png Graphic file (type png)
+<use Plot/loss-final.png>
+Package pdftex.def Info: Plot/loss-final.png  used on input line 378.
+(pdftex.def)             Requested size: 314.17297pt x 169.63333pt.
+ [16 <./Plot/learning-rate.png> <./Plot/loss-final.png>]
+<Plot/CNN_RMSE.png, id=101, 625.1355pt x 340.3917pt>
+File: Plot/CNN_RMSE.png Graphic file (type png)
+<use Plot/CNN_RMSE.png>
+Package pdftex.def Info: Plot/CNN_RMSE.png  used on input line 403.
+(pdftex.def)             Requested size: 375.08418pt x 204.23659pt.
+ [17 <./Plot/CNN_RMSE.png>]
+<Plot/MLP_RMSE.png, id=108, 625.1355pt x 340.3917pt>
+File: Plot/MLP_RMSE.png Graphic file (type png)
+<use Plot/MLP_RMSE.png>
+Package pdftex.def Info: Plot/MLP_RMSE.png  used on input line 414.
+(pdftex.def)             Requested size: 343.82558pt x 187.216pt.
+<Plot/FINAL_RMSE.png, id=109, 625.33624pt x 339.2675pt>
+File: Plot/FINAL_RMSE.png Graphic file (type png)
+<use Plot/FINAL_RMSE.png>
+Package pdftex.def Info: Plot/FINAL_RMSE.png  used on input line 422.
+(pdftex.def)             Requested size: 343.93599pt x 186.59769pt.
+ [18 <./Plot/MLP_RMSE.png> <./Plot/FINAL_RMSE.png>]
+<Plot/ALL_RMSE.png, id=115, 614.295pt x 339.2675pt>
+File: Plot/ALL_RMSE.png Graphic file (type png)
+<use Plot/ALL_RMSE.png>
+Package pdftex.def Info: Plot/ALL_RMSE.png  used on input line 456.
+(pdftex.def)             Requested size: 368.57983pt x 203.56206pt.
+ [19 <./Plot/ALL_RMSE.png>]
+
+LaTeX Warning: Citation `2019' on page 20 undefined on input line 470.
+
+<Plot/GRAD-CAM.png, id=120, 642.14906pt x 314.67563pt>
+File: Plot/GRAD-CAM.png Graphic file (type png)
+<use Plot/GRAD-CAM.png>
+Package pdftex.def Info: Plot/GRAD-CAM.png  used on input line 476.
+(pdftex.def)             Requested size: 385.2924pt x 188.80682pt.
+[20 <./Plot/GRAD-CAM.png>] (ProjectReport.bbl [21]) [22] (ProjectReport.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 15160 strings out of 478659
+ 308080 string characters out of 2845447
+ 591876 words of memory out of 3000000
+ 32965 multiletter control sequences out of 15000+600000
+ 412166 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,15n,94p,1074b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Mattia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ProjectReport.pdf (24 pages, 2503434 bytes).
+PDF statistics:
+ 185 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+

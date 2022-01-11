@@ -252,32 +252,135 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
 \section{The Methodological Approach}
 
+    La competizione proposta da PetFinder.my si presenta come un problema di regressione, con l'obiettivo di creare un modello capace di assegnare un punteggio di attrattività, 
+    compreso tra 0 e 100, ad una determinata foto di un animale.
+    Nei seguenti paragrafi verrano presentati i vari step che hanno portato alla definizione del modello finale utilizzato per il task sopra descritto.
+    Si è partiti da alcuni modelli di deep learning più tradizionali, quali fully-connected neural networks e convolutional neural networks, per poi cercare di combinare le informazioni
+    contenute nelle immagini con le informazioni date dai metadati allegati alle foto.
+    Si anticipa che l'approccio finale proposto è basato su un modello multi-input single-output. La motivazione alla base di questo approccio è quella di sviluppare un sistema di 
+    apprendimento che sia in grado di sfruttare le informazioni utili da features miste di dati, poiché questi tipi di dati di solito richiedono un trattamento separato. 
+    A tal fine, ogni tipo di dato in ingresso viene elaborato e gestito in modo diverso e indipendente.
 
-    L'approccio proposto è basato su un modello multi-input single-output. La motivazione alla base di questo approccio è quella di sviluppare un sistema di apprendimento che sia in grado di sfruttare le informazioni utili da features miste di dati, poiché questi tipi di dati di solito richiedono un trattamento separato. A tal fine, ogni tipo di dato in ingresso viene elaborato e gestito in modo diverso e indipendente. L'architettura proposta è mostrata in figura \ref{fig:model}
+    \subsection{Convolutional neural network}
+    \label{cnn}
+        Il primo approccio adottato per cercare di risolvere il problema e per dare una base di partenza da cui poi definire modelli più complessi, è stato quello di sfruttare
+        una convolutional neural network, classico tipo di rete neurale adatto a trattare immagini. Con questo primo tentativo si è cercato di capire che performance era possibile
+        ottenere sfruttando solamente le foto, lasciando momentaneamente in disparte i metadati forniti.
+
+        Il modello costruito si basa su transfer learning e fine-tuning di una rete allenata in precedenza, in modo da poter sfruttare le elevate performance di questi modelli andando
+        ad abbattere i tempi di allenamento da zero di una nuova rete di grandezza simile. In particolare, per il task trattato da questo caso di studio, si è optato per la rete 
+        EfficientNet-B3. Le EfficientNet sono una famiglia di reti presentate nel maggio 2019, basate su un metodo di model scaling innovativo rispetto ad esempio a MobileNet o ResNet
+        il quale va a scalare uniformemente le dimensioni di larghezza, profondità e risoluzione utilizzando un coefficiente composto $\phi$ nella seguente maniera:
+        \begin{equation}
+            \begin{split}
+                depth:&\ d = \alpha^\phi\\
+                width:&\ w = \beta^\phi\\
+                resolution:&\  r = \gamma^\phi\\
+                s.t.&\ \alpha \cdot \beta^2 \cdot \gamma^2 \approx 2\\
+                &\ \alpha\geq1, \beta\geq1, \gamma\geq1
+            \end{split}
+        \end{equation}
+        dove $\alpha$, $\beta$, $\gamma$ sono costanti determinabili da una piccola grid search.
+        
+        La versione B7 di EfficientNet ha raggiunto una top-1 accuracy su ImageNet pari al 84.3\%, raggiungendo lo stato dell'arte a parità di Gpipe pur essendo 8.4 volte più piccola e 6.1 volte più veloce nell'inferenza.
+        EfficientNet si è inoltre dimostrata molto performante in caso di utilizzo in transfer learning, in particolare raggiungendo un'accuracy pari al 91.7\% su Cifar-100 e al 98.8\% 
+        su Flowers. Nel caso del problema trattato in questo documento, si è scelta la versione B3, la quale prende in input immagini di dimensione 300x300, decisione dettata dal trade-off tra compattezza
+        (e quindi limiti hardware) e performance della rete. 
+        Le performance delle varie versioni di EfficientNet su ImageNet rispetto ad altre reti sono mostrate in figura \ref{fig:efficientnet}.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.2]{Plot/efficientnet.png}
+            \caption{Performance di EfficientNet rispetto ad altre reti.}
+            \label{fig:efficientnet}
+        \end{figure}
+        
+        Inoltre, i pesi importati, sono quelli ottenuti tramite la tecnica di training Noisy Student. Noisy Student è una metodo di apprendimento semi-supervisionato che si basa sull'allenare
+        un modello (teacher) con immagini etichettate, utilizzarlo per etichettare nuove immagini e allenare un nuovo modello (student), della stessa grandezza o maggiore, con le immagini iniziali e 
+        quelle nuove ottenute dal primo modello aggiugendo del rumore. Questi passi vengono poi ripetuti più volte, invertendo teacher e student. Attraverso questa tecnica, utilizzando
+        300M di immagini non etichettate, EfficientNet-B7 ha raggiunto una top-1 accuracy su ImageNet pari al 88.4\%.
+
+        In coda alla rete pre-allenata importata, sono stati aggiunti dei layer fully-connected per adattare il modello al problema di regressione di PetFinder.my. Di seguito
+        è specificata l'architettura della sezione aggiunta:
+        \begin{itemize}
+            \item \textbf{Dense} - 1024 neuroni, ReLU
+            \item \textbf{Dropout} - 50\% dei neuroni eliminati.
+            \item \textbf{Dense} - 512 neuroni, ReLU
+            \item \textbf{Dropout} - 30\% dei neuroni eliminati.
+            \item \textbf{Dense} - 128 neuroni, ReLU
+            \item \textbf{Dropout} - 10\% dei neuroni eliminati.
+            \item \textbf{Dense} - 1 neurone, Linear
+        \end{itemize}
+        La funzione di loss scelta è stata la Mean Squared Error, mentre per monitorare le performance è stata utilizzata come metrica la Root Mean Squared Error, così da 
+        avere un'idea sulla reale grandezza dell'errore. Come algoritmo di ottimizzazione è stato selezionato Adam.
+
+    \subsection{Fully-connected neural network}
+    \label{mlp}
+    Per trattare i metadati riguardati le foto, si è deciso di utilizzare una rete neurale classica fully-connected. Di seguito viene 
+    riportata l'architettura del modello:
+    \begin{itemize}
+        \item \textbf{Dense} - 32 neuroni, ReLU
+        \item \textbf{Dropout} - 20\% dei neuroni eliminati.
+        \item \textbf{Dense} - 8 neuroni, ReLU
+        \item \textbf{Dropout} - 10\% dei neuroni eliminati.
+        \item \textbf{Dense} - 1 neurone, Linear
+    \end{itemize}
+    Anche in questo caso, come per la rete convoluzionale, si sono utilizzate MSE come funzione di loss, RMSE come metrica delle performance del modello e Adam come algoritmo di ottimizzazione.
+
+    \subsection{Multi-input \& mixed data neural network}
+    \label{mulinput}
+    L'ipotesi secondo cui predizioni più accurate si possono ottenere combinando le informazioni derivanti dalle foto degli animali e dai metadati ad esse allegati, ha portato alla
+    costruzione di un terzo modello, combinazione dei due precedentemente descritti.
+
+    Il modello in questione si presenta come una rete neurale multi-input, costituita dalla rete convoluzionale illustrata nel paragrafo \ref{cnn} e dalla rete fully-connected di cui si
+    indicano le specifiche nel paragrafo \ref{mlp}, i quali output vengono concatenati e processati da due ulteriori layer.
+    L'architettura proposta è mostrata in figura \ref{fig:model}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.35]{Plot/Model-Plot.png}
+            \caption{Architettura Multi-input Single-output Mixed-data}
+            \label{fig:model}
+        \end{figure}
+
+    \subsection{Training}
+    Il training del modello finale descritto nel paragrafo \ref{mulinput}, è avvenuto allenando prima separatamente i due modelli di cui è composto. Entrambe le reti sono state 
+    allenate utilizzando una grandezza di batch di 32, per un massimo di 15 epoche, applicando in entrambi i casi early-stopping per evitare casi di overfitting. Di seguito, 
+    in figura \ref{fig:loss_cnn} e in figura \ref{fig:loss_mlp} sono presentati i grafici del valore di loss durante i training della rete convoluzionale e della rete fully-connected.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/loss-cnn.png}
+            \caption{Grafico del valore di loss durante il training della rete CNN}
+            \label{fig:loss_cnn}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/loss-mlp.png}
+            \caption{Grafico del valore di loss durante il training della rete Fully-Connected}
+            \label{fig:loss_mlp}
+        \end{figure}
+    I due modelli allenati sono stati successivamente uniti per andare a formare la rete multi-input e i loro pesi sono stati bloccati, così da poter effettuare il training 
+    solo sulla sezione aggiunta in seguito alla concatenzaione dei risultati.
+
+    Durante la fase di training del terzo modello, si è riscontrato un fenomeno di blocco in un minimo locale, il quale impediva miglioramenti delle performance. Il problema
+    è stato affrontato effettuando uno studio sul valore ideale di learning rate, ricerca che ha portato alle scelta di un valore pari a 0.1, più alto rispetto ai valori inizialmente
+    adottati. In figura \ref{fig:learning_rate} viene presentato il grafico dello studio che ha portato alla scelta del particolare valore di learning rate.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/learning-rate.png}
+            \caption{Grafico del valore di loss rispetto a diversi valori di learning rate}
+            \label{fig:learning_rate}
+        \end{figure}
+
+    Il modello multi-input è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso limitate da early-stopping. In figura \ref{fig:loss_mulinput} è
+    presentato il grafico del valore di loss durante il training del modello finale.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.5]{Plot/loss-final.png}
+            \caption{Grafico del valore di loss durante il training della rete Multi-input}
+            \label{fig:loss_mulinput}
+        \end{figure}
 
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[scale=0.35]{Plot/Model-Plot.png}
-        \caption{Multi-input Single-output Model}
-        \label{fig:model}
-    \end{figure}
-
-\subsection{}
-
-This is the central and most important section of the report. Its objective must be to show, with linearity and clarity, the steps that have led to the definition of a decision model. The description of the working hypotheses, confirmed or denied, can be found in this section together with the description of the subsequent refining processes of the models. Comparisons between different models (e.g. heuristics vs. optimal models) in terms of quality of solutions, their explainability and execution times are welcome. 
-
-Do not attempt to describe all the code in the system, and do not include large pieces of code in this section, use pseudo-code where necessary. Complete source code should be provided separately (in Appendixes, as separated material or as a link to an on-line repo). Instead pick out and describe just the pieces of code which, for example:
-\begin{itemize}
-\item are especially critical to the operation of the system;
-\item you feel might be of particular interest to the reader for some reason;
-\item  illustrate a non-standard or innovative way of implementing an algorithm, data
-structure, etc..
-\end{itemize}
-
-You should also mention any unforeseen problems you encountered when implementing the
-system and how and to what extent you overcame them. Common problems are:
- difficulties involving existing software.
 
 
 \newpage
