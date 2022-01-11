@@ -37,6 +37,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{float}
 
 \begin{document}
 
@@ -117,37 +118,137 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     Inoltre è presente anche un file \textbf{\textit{sample\_submission.csv}} con un esempio di submission. Dopo aver inviato la submission, il modello verrà testato su un subset pari al 25\% del dataset originale di test, contenete circa 6800 immagini, il quale verrà utilizzato solo al termine della competizione per stilare la classifica finale.
 
     
-
     \subsection{Data Exploration}
-    
+    Processo per investigare quelle che sono le caratteristiche chiave dei dataset. Prima di costruire un modello di machine learning è necessario capire il dataset con cui si sta lavorando e il problema che si sta cercando di risolvere. Entriamo ora nel dettaglio.
+
+    \subsubsection{Immagini}
+    Per quanto riguarda il dataset delle immagini andremo a mostrare alcune foto in base al pawpularity score assegnato.
+    Analizziamo quindi le immagini partendo dai voti più bassi andando verso quelli più alti. Per non sporcare troppo il report sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{Plot/pawpularity_1.jpg}
+        \caption{Animali con Pawpularity=1}
+        \label{fig:paw_10}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{Plot/pawpularity_50.jpg}
+        \caption{Animali con Pawpularity=50}
+        \label{fig:paw_50}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{Plot/pawpularity_100.jpg}
+        \caption{Animali con Pawpularity=100}
+        \label{fig:paw_100}
+    \end{figure}
+
+    Dall'analisi visiva effettuata non si evincono particolari dettagli su cosa possa rendere una foto più "popolare" rispetto ad un'altra, è facile, infatti, trovare delle belle foto di animali con score di pawpularity sotto il 10.
+
     \subsubsection{Metadati}
-    Come descritto in precedenza i file \textit{train.csv} e \textit{test.csv} contengono i metadati per ogni immagine. Ogni metadato è etichettato con il valore 1 (Sì) o 0 (No):
-        
+    Come descritto in precedenza il file \textit{train.csv} contiene i metadati per ogni immagine. In figura \ref{fig:target} visualizziamo la distribuzione del target, ovvero il Pawpularity score.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.8]{Plot/distribution_target.jpg}
+        \caption{Distribuzione e esempio della feature Focus}
+        \label{fig:target}
+    \end{figure}
+
+    Osserviamo come la distribuzione dello score sia concentrata principalmente tra i valori 20 e 50. È facile osservare anche una forte presenza di immagini con score uguale a 100.
+    Successivamente analizziamo la distribuzione del target per ogni singola feature del dataset.
+    Per fare ciò usiamo degli istogrammi, plottiamo il Pawpularity score sull'asse x e la somma degli 0s e degli 1s di ogni feature sull'asse y. Questo ci può aiutare a visualizzare se alcune feature impattano più di altre nel calcolo del Pawpularity score. Per ogni feature inoltre vengono mostrati degli esempi di immagini per contestualizzare meglio il significato della feature stessa.
+
     \begin{itemize}
-        \item \textbf{Focus} - L'animale è posizionato in uno sfondo ordinato, non troppo vicino/lontano;
+        \item \textbf{Focus} - L'animale è posizionato su uno sfondo ordinato, non troppo vicino/lontano;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_subjectfocus.jpg}
+            \caption{Distribuzione e esempio della feature Focus}
+            \label{fig:focus}
+        \end{figure}
         \item \textbf{Eyes} - Entrambi gli occhi sono rivolti verso l'obiettivo, con almeno un occhio/pupilla decentemente chiaro;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_eyes.jpg}
+            \caption{Distribuzione e esempio della feature Eyes}
+            \label{fig:eyes}
+        \end{figure}
         \item \textbf{Face} - Viso discretamente chiaro e rivolto in avanti;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_face.jpg}
+            \caption{Distribuzione e esempio della feature Face}
+            \label{fig:face}
+        \end{figure}
         \item \textbf{Near} - Singolo animale che occupa una porzione significativa della foto (circa oltre il 50\% della larghezza o dell'altezza della foto);
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_near.jpg}
+            \caption{Distribuzione e esempio della feature Near}
+            \label{fig:near}
+        \end{figure}
         \item \textbf{Action} - Animale nel mentre di un'azione (ad es. saltare);
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_action.jpg}
+            \caption{Distribuzione e esempio della feature Action}
+            \label{fig:action}
+        \end{figure}
         \item \textbf{Accessory} - Accessorio/oggetto di accompagnamento fisico o digitale, come un giocattolo o un adesivo digitale, esclusi collare e guinzaglio;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_accessory.jpg}
+            \caption{Distribuzione e esempio della feature Accessory}
+            \label{fig:accessory}
+        \end{figure}
         \item \textbf{Group} - Più di 1 animale nella foto;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_group.jpg}
+            \caption{Distribuzione e esempio della feature Group}
+            \label{fig:group}
+        \end{figure}
         \item \textbf{Collage} - Foto ritoccata digitalmente;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_collage.jpg}
+            \caption{Distribuzione e esempio della feature Collage}
+            \label{fig:collage}
+        \end{figure}
         \item \textbf{Human} - Umano nella foto;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_human.jpg}
+            \caption{Distribuzione e esempio della feature Human}
+            \label{fig:human}
+        \end{figure}
         \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale. Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_occlusion.jpg}
+            \caption{Distribuzione e esempio della feature Occlusion}
+            \label{fig:occlusion}
+        \end{figure}
         \item \textbf{Info} - Mesto o etichette personalizzati (ad es. nome dell'animale, descrizione);
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_info.jpg}
+            \caption{Distribuzione e esempio della feature Info}
+            \label{fig:info}
+        \end{figure}
         \item \textbf{Blur} - Notevolmente sfocato o rumoroso, soprattutto per gli occhi e il viso dell'animale. Per le voci Sfocatura, la colonna "Occhi" è sempre impostata su 0.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.5]{Plot/distribution_blur.jpg}
+            \caption{Distribuzione e esempio della feature Blur}
+            \label{fig:blur}
+        \end{figure}
     \end{itemize}
-
     
-    
-    
-    
-    
-    
-    TO-DO
-
-    In this section the available data sets must be presented. The term dataset refers to any type of information source, for example web services for geolocation fall into this category. 
-    In addition, all necessary data manipulation processes, such as cleaning and enrichment with external sources, must be presented and discussed.
+    Intuitivamente possiamo dire che questi grafici non ci dicono molto. La distribuzione del Pawpularity score è simile per ogni feature, in altre parole nessuna feature in particolare sembra influenzare particolarmente il Pawpularity score.
+    \vfill
 
 \section{The Methodological Approach}
 
