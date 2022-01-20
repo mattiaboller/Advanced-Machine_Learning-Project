@@ -98,16 +98,16 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
 
 \begin{abstract}
-    Una immagine vale più di mille parole. Sapevi che un' immagine può salvare più di mille vite? Milioni di animali randagi soffrono per le strade o vengono soppressi nei rifugi ogni giorno in tutto il mondo. È chiaro aspettarsi che gli animali con foto più "attraenti" generino più interesse e vengano adottati più velocemente. Ma cosa rende "attraente" una immagine? Con l'aiuto del Deep Learning cercheremo di determinare l'attrattiva di una foto di un animale al fine di dargli una maggiore possibilità di adozione. In questo documento verranno illustrate le tecniche e le soluzioni adottate, tramite l'utilizzo di diversi modelli di deep neural network, per ottenere tale score di popolarità. 
+    Una immagine vale più di mille parole. Sapevi che un' immagine può salvare più di mille vite? Milioni di animali randagi soffrono per le strade o vengono soppressi nei rifugi ogni giorno in tutto il mondo. È chiaro aspettarsi che gli animali con foto più "attraenti" generino più interesse e vengano adottati più velocemente. Ma cosa rende "attraente" una immagine? Con l'aiuto del Deep Learning si è cercato di determinare l'attrattiva di una foto di un animale al fine di dargli una maggiore possibilità di adozione. In questo documento sono illustrate le tecniche e le soluzioni adottate, tramite l'unione di diversi modelli di deep neural network, per ottenere tale score di popolarità. 
 \end{abstract}
 
 \section{Introduzione}
-    Il task fa riferimento ad una competizione aperta su Kaggle.
+    Il task fa riferimento ad una competizione aperta su Kaggle \footnote{https://www.kaggle.com/c/petfinder-pawpularity-score}.
     La competizione è finanziata da PetFinder.my, principale piattaforma per il benessere degli animali della Malesia. Attualmente, PetFinder.my utilizza un misuratore per stimare la popolarità delle foto di animali randagi ospitati all'interno di rifugi. Questo misuratore analizza le statistiche riguardanti il traffico generato dalle foto degli animali, presenti su diversi portali, e ne stima la popolarità. Sebbene questo strumento sia utile, potrebbe essere ancora migliorato. L'obiettivo finale è quello di stimare a priori la "Pawpularity" (termine coniato dalla piattaforma per indicare la popolarità di una foto) di un animale in base alla foto del suo profilo, in modo di scegliere quelle che ne faciliterebbero l'adozione. Insieme alle foto di migliaia di animali vengono anche forniti dei metadati, etichettati a mano, per ogni foto. Vengono forniti quindi due dataset, uno con le foto degli animali e l'altro con i corrispettivi metadati.
-    La soluzione da noi proposta utilizza un modello multi-input, per utilizzare tutte le informazioni a disposizione. Da un lato una rete convoluzionale che sfrutta un approccio di fine-tuning basato su transfer learning, dall'altro una semplice rete neurale fully-connected. Gli output delle due reti vengono concatenati e processati da un ulteriore layer fully-connected finale per ottenere l'output, ovvero il Pawpularity score.
+    La soluzione proposta utilizza un modello multi-input, per utilizzare tutte le informazioni a disposizione. Da un lato una rete convoluzionale che sfrutta un approccio di fine-tuning basato su transfer learning, dall'altro una semplice rete neurale fully-connected. Gli output delle due reti vengono concatenati e processati da un ulteriore layer fully-connected finale per ottenere l'output, ovvero il Pawpularity score.
 
 
-\section{Datasets}
+\section{Dataset}
     Vengono forniti un dataset di immagini e un dataset tabulare contenente i metadati delle immagini.\\ In particolare, i dati di training comprendono:
     \begin{itemize}
         \item Una cartella \textbf{train} contenente 9912 immagini di training nella forma \textit{\{id\}.jpg}, dove id è un identificativo univoco del profilo dell'animale;
@@ -118,12 +118,12 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     Inoltre è presente anche un file \textbf{\textit{sample\_submission.csv}} con un esempio di submission. Dopo aver inviato la submission, il modello verrà testato su un subset pari al 25\% del dataset originale di test, contenete circa 6800 immagini, il quale verrà utilizzato solo al termine della competizione per stilare la classifica finale.
 
     
-    \subsection{Data Exploration}
-    Processo per investigare quelle che sono le caratteristiche chiave dei dataset. Prima di costruire un modello di machine learning è necessario capire il dataset con cui si sta lavorando e il problema che si sta cercando di risolvere. Entriamo ora nel dettaglio.
+    \subsection{Esplorazione Dataset}
+    Processo per investigare quelle che sono le caratteristiche chiave dei dataset. Prima di costruire un modello di machine learning è necessario capire il dataset con cui si sta lavorando e il problema che si sta cercando di risolvere.
 
     \subsubsection{Immagini}
-    Per quanto riguarda il dataset delle immagini andremo a mostrare alcune foto in base al pawpularity score assegnato.
-    Analizziamo quindi le immagini partendo dai voti più bassi andando verso quelli più alti. Per non rendere il report troppo prolisso, sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
+    Per quanto riguarda il dataset delle immagini si andrà a mostrare alcune foto in base al pawpularity score assegnato.
+    Si analizzano quindi le immagini, partendo dai voti più bassi andando verso quelli più alti. Per non rendere il report troppo prolisso, sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
     
     TODO: Confronto animali con diversa pawpularity
     
@@ -147,7 +147,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
     Si può osservare come la distribuzione dello score sia concentrata principalmente tra i valori 20 e 50 con una forte presenza di immagini con score uguale a 100.
     Successivamente è stata analizzata la distribuzione del target per ogni singola feature del dataset.
-    Per fare ciò usiamo degli istogrammi, mostriamo il Pawpularity score sull'asse x e la somma dei valori di ogni feature sull'asse y. Questo ci può aiutare a visualizzare se alcune feature impattano più di altre nel calcolo del Pawpularity score. Per ogni feature inoltre vengono mostrati degli esempi di immagini per contestualizzare meglio il significato della feature stessa.
+    Per fare ciò si utilizzano degli istogrammi, mostrando il Pawpularity score sull'asse x e la somma dei valori di ogni feature sull'asse y. Questo può aiutare a comprendere se alcune feature impattano più di altre nel calcolo del Pawpularity score.
 
     \begin{itemize}
         \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale. Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
@@ -176,8 +176,6 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
         \item \textbf{Blur} - Notevolmente sfocato o rumoroso, soprattutto per gli occhi e il viso dell'animale. Per le voci Sfocatura, la colonna "Occhi" è sempre impostata su 0.
     \end{itemize}
     
-    Intuitivamente è possibile affermare che questi grafici non diano molte informazioni. La distribuzione del Pawpularity score è simile per ogni feature, in altre parole nessuna feature sembra influenzare particolarmente il Pawpularity score.
-    \vfill
 
 \section{Approccio metodologico}
 
@@ -186,9 +184,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     Nei seguenti paragrafi verrano presentati i vari step che hanno portato alla definizione del modello finale utilizzato per il task sopra descritto.
     Si è partiti da alcuni modelli di deep learning più tradizionali, quali fully-connected neural networks e convolutional neural networks, per poi cercare di combinare le informazioni
     contenute nelle immagini con le informazioni date dai metadati allegati alle foto.
-    Si anticipa che l'approccio finale proposto è basato su un modello multi-input single-output. La motivazione alla base di questo approccio è quella di sviluppare un sistema di 
-    apprendimento che sia in grado di sfruttare le informazioni utili da features miste di dati, poiché questi tipi di dati di solito richiedono un trattamento separato. 
-    A tal fine, ogni tipo di dato in ingresso viene elaborato e gestito in modo diverso e indipendente.
+    Si anticipa che l'approccio finale proposto è basato su un modello ibrido che combina gli score delle varie reti al fine di utilizzare più informazioni possibili.
 
     \subsection{Convolutional neural network}
     \label{cnn}
@@ -198,8 +194,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
         Il modello costruito si basa su transfer learning e fine-tuning di una rete allenata in precedenza, in modo da poter sfruttare le elevate performance di questi modelli andando
         ad abbattere i tempi di allenamento da zero di una nuova rete di grandezza simile. In particolare, per il task trattato da questo caso di studio, si è optato per la rete 
-        EfficientNet-B3. Le EfficientNet sono una famiglia di reti presentate nel maggio 2019, basate su un metodo di model scaling innovativo rispetto ad esempio a MobileNet o ResNet
-        il quale va a scalare uniformemente le dimensioni di larghezza, profondità e risoluzione utilizzando un coefficiente composto $\phi$ nella seguente maniera:
+        EfficientNet-B3. Le EfficientNet sono una famiglia di reti presentate nel maggio 2019, basate su un metodo di model scaling innovativo rispetto ad esempio a MobileNet o ResNet, il quale va a scalare uniformemente le dimensioni di larghezza, profondità e risoluzione utilizzando un coefficiente composto $\phi$ nella seguente maniera:
         \begin{equation}
             \begin{split}
                 depth:&\ d = \alpha^\phi\\
@@ -212,7 +207,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
         dove $\alpha$, $\beta$, $\gamma$ sono costanti determinabili da una piccola grid search.
         
         La versione B7 di EfficientNet ha raggiunto una top-1 accuracy su ImageNet pari al 84.3\%, raggiungendo lo stato dell'arte a parità di Gpipe pur essendo 8.4 volte più piccola e 6.1 volte più veloce nell'inferenza.
-        EfficientNet si è inoltre dimostrata molto performante in caso di utilizzo in transfer learning, in particolare raggiungendo un'accuracy pari al 91.7\% su Cifar-100 e al 98.8\% su Flowers. Nel caso del problema trattato in questo documento, si è scelta la versione B3, la quale prende in input immagini di dimensione 300x300, decisione dettata dal trade-off tra compattezza, quindi limiti hardware, e performance della rete. \cite{tan2020efficientnet}
+        EfficientNet si è inoltre dimostrata molto performante in caso di utilizzo in transfer learning, in particolare raggiungendo un'accuracy pari al 91.7\% su Cifar-100 e al 98.8\% su Flowers. Nel caso del problema trattato in questo documento, si è scelta la versione B3, la quale prende in input immagini di dimensione 300x300 pixel, decisione dettata dal trade-off tra compattezza, quindi limiti hardware, e performance della rete. \cite{tan2020efficientnet}
         Le performance delle varie versioni di EfficientNet su ImageNet rispetto ad altre reti sono mostrate in figura \ref{fig:efficientnet}.
 
         \begin{figure}[H]
@@ -222,7 +217,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
             \label{fig:efficientnet}
         \end{figure}
         
-        Inoltre, i pesi importati, sono quelli ottenuti tramite la tecnica di training Noisy Student. Noisy Student è una metodo di apprendimento semi-supervisionato che si basa sull'allenare un modello (teacher) con immagini etichettate, utilizzarlo per etichettare nuove immagini e allenare un nuovo modello (student), della stessa grandezza o maggiore, con le immagini iniziali e quelle nuove ottenute dal primo modello aggiugendo del rumore. Questi passi vengono poi ripetuti più volte, invertendo teacher e student. Attraverso questa tecnica, utilizzando 300M di immagini non etichettate, EfficientNet-B7 "Noisy Student" ha raggiunto una top-1 accuracy su ImageNet pari al 88.4\%. Questo approccio è stato scelto inoltre perché consente una generalizzazione migliore. \cite{xie2020selftraining}
+        Inoltre, i pesi importati, sono quelli ottenuti tramite la tecnica di training Noisy Student. Noisy Student è una metodo di apprendimento semi-supervisionato che si basa sull'allenare un modello (teacher) con immagini etichettate, utilizzarlo per etichettare nuove immagini e allenare un nuovo modello (student), della stessa grandezza o maggiore, con le immagini iniziali e quelle nuove ottenute dal primo modello aggiugendo del rumore. Questi passi vengono poi ripetuti più volte, invertendo teacher e student. Attraverso questa tecnica, utilizzando 300 milioni di immagini non etichettate, EfficientNet-B7 "Noisy Student" ha raggiunto una top-1 accuracy su ImageNet pari al 88.4\%. Questo approccio è stato scelto inoltre perché consente una generalizzazione migliore. \cite{xie2020selftraining}
 
         In coda alla rete pre-allenata importata, sono stati aggiunti dei layer fully-connected per adattare il modello al problema di regressione di PetFinder.my. Di seguito
         è specificata l'architettura della sezione aggiunta:
@@ -261,21 +256,21 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     L'architettura proposta è mostrata in figura \ref{fig:model} nell'appendice A.
 
 
-    \subsection{Training}
-    Il training del modello finale descritto nel paragrafo \ref{mulinput}, è avvenuto allenando prima separatamente i due modelli di cui è composto. Entrambe le reti sono state 
-    allenate utilizzando una grandezza di batch di 32, per un massimo di 15 epoche, applicando in entrambi i casi early-stopping per evitare casi di overfitting. 
+    \subsection{Addestramento}
+    L'addestramento del modello finale descritto nel paragrafo \ref{mulinput}, è avvenuto allenando prima separatamente i due modelli di cui è composto. Entrambe le reti sono state allenate utilizzando una grandezza di batch di 32, per un massimo di 30 epoche, usando in entrambi i casi dei checkpoint basati sul valore minore di validation loss per evitare casi di overfitting. 
 
     I due modelli allenati sono stati successivamente uniti per andare a formare la rete ibrida e i loro pesi sono stati bloccati, così da poter effettuare il training 
     solo sulla sezione aggiunta in seguito alla concatenzaione dei risultati.
-    Il modello ibrido è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso limitate da early-stopping.
+    Il modello ibrido è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso utilizzando dei checkpoint.
 
 
 \section{Risultati e Valutazione}
 
 La metrica usata per la valutazione delle performance, essendo un task di regressione, è rappresentata dal calcolo del \textbf{RMSE (Root Mean Square Error)}:
-\[
-\textrm{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} 
-\]
+\begin{equation}
+    \textrm{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} 
+\end{equation}
+
 con $\hat{y}_i$ il valore di popolarità predetto e $y_i$ il valore originale.
 
 

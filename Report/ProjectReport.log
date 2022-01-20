@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.5)  11 JAN 2022 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.5)  20 JAN 2022 16:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -433,154 +433,73 @@ File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
-<Plot/pawpularity_1.jpg, id=18, 476.37975pt x 157.18726pt>
+<Plot/pawpularity_1.jpg, id=20, 476.37975pt x 157.18726pt>
 File: Plot/pawpularity_1.jpg Graphic file (type jpg)
 <use Plot/pawpularity_1.jpg>
-Package pdftex.def Info: Plot/pawpularity_1.jpg  used on input line 129.
-(pdftex.def)             Requested size: 238.18929pt x 78.59343pt.
+Package pdftex.def Info: Plot/pawpularity_1.jpg  used on input line 132.
+(pdftex.def)             Requested size: 190.54851pt x 62.87378pt.
  [2]
-<Plot/pawpularity_50.jpg, id=25, 469.755pt x 160.1985pt>
-File: Plot/pawpularity_50.jpg Graphic file (type jpg)
-<use Plot/pawpularity_50.jpg>
-Package pdftex.def Info: Plot/pawpularity_50.jpg  used on input line 136.
-(pdftex.def)             Requested size: 234.87692pt x 80.09904pt.
-<Plot/pawpularity_100.jpg, id=26, 466.74374pt x 162.6075pt>
-File: Plot/pawpularity_100.jpg Graphic file (type jpg)
-<use Plot/pawpularity_100.jpg>
-Package pdftex.def Info: Plot/pawpularity_100.jpg  used on input line 143.
-(pdftex.def)             Requested size: 233.37129pt x 81.30354pt.
 <Plot/distribution_target.jpg, id=27, 463.13025pt x 249.93375pt>
 File: Plot/distribution_target.jpg Graphic file (type jpg)
 <use Plot/distribution_target.jpg>
-Package pdftex.def Info: Plot/distribution_target.jpg  used on input line 154.
-(pdftex.def)             Requested size: 370.5047pt x 199.94727pt.
- [3 <./Plot/pawpularity_1.jpg> <./Plot/pawpularity_50.jpg> <./Plot/pawpularity_100.jpg>]
-<Plot/distribution_subjectfocus.jpg, id=31, 622.12425pt x 210.7875pt>
-File: Plot/distribution_subjectfocus.jpg Graphic file (type jpg)
-<use Plot/distribution_subjectfocus.jpg>
-Package pdftex.def Info: Plot/distribution_subjectfocus.jpg  used on input line 167.
-(pdftex.def)             Requested size: 311.06136pt x 105.3935pt.
-<Plot/distribution_eyes.jpg, id=32, 673.3155pt x 210.18526pt>
-File: Plot/distribution_eyes.jpg Graphic file (type jpg)
-<use Plot/distribution_eyes.jpg>
-Package pdftex.def Info: Plot/distribution_eyes.jpg  used on input line 174.
-(pdftex.def)             Requested size: 336.65692pt x 105.09236pt.
- [4 <./Plot/distribution_target.jpg> <./Plot/distribution_subjectfocus.jpg>]
-<Plot/distribution_face.jpg, id=36, 673.3155pt x 210.18526pt>
-File: Plot/distribution_face.jpg Graphic file (type jpg)
-<use Plot/distribution_face.jpg>
-Package pdftex.def Info: Plot/distribution_face.jpg  used on input line 181.
-(pdftex.def)             Requested size: 336.65692pt x 105.09236pt.
-<Plot/distribution_near.jpg, id=37, 641.9985pt x 210.7875pt>
-File: Plot/distribution_near.jpg Graphic file (type jpg)
-<use Plot/distribution_near.jpg>
-Package pdftex.def Info: Plot/distribution_near.jpg  used on input line 188.
-(pdftex.def)             Requested size: 320.99846pt x 105.3935pt.
-<Plot/distribution_action.jpg, id=38, 643.203pt x 211.38976pt>
-File: Plot/distribution_action.jpg Graphic file (type jpg)
-<use Plot/distribution_action.jpg>
-Package pdftex.def Info: Plot/distribution_action.jpg  used on input line 195.
-(pdftex.def)             Requested size: 321.60071pt x 105.69461pt.
- [5 <./Plot/distribution_eyes.jpg> <./Plot/distribution_face.jpg> <./Plot/distribution_near.jpg>]
-<Plot/distribution_accessory.jpg, id=42, 641.9985pt x 210.18526pt>
-File: Plot/distribution_accessory.jpg Graphic file (type jpg)
-<use Plot/distribution_accessory.jpg>
-Package pdftex.def Info: Plot/distribution_accessory.jpg  used on input line 202.
-(pdftex.def)             Requested size: 320.99846pt x 105.09236pt.
-<Plot/distribution_group.jpg, id=43, 673.3155pt x 209.583pt>
-File: Plot/distribution_group.jpg Graphic file (type jpg)
-<use Plot/distribution_group.jpg>
-Package pdftex.def Info: Plot/distribution_group.jpg  used on input line 209.
-(pdftex.def)             Requested size: 336.65692pt x 104.79123pt.
-<Plot/distribution_collage.jpg, id=44, 628.749pt x 210.18526pt>
-File: Plot/distribution_collage.jpg Graphic file (type jpg)
-<use Plot/distribution_collage.jpg>
-Package pdftex.def Info: Plot/distribution_collage.jpg  used on input line 216.
-(pdftex.def)             Requested size: 314.37372pt x 105.09236pt.
- [6 <./Plot/distribution_action.jpg> <./Plot/distribution_accessory.jpg> <./Plot/distribution_group.jpg>]
-<Plot/distribution_human.jpg, id=49, 641.9985pt x 210.7875pt>
-File: Plot/distribution_human.jpg Graphic file (type jpg)
-<use Plot/distribution_human.jpg>
-Package pdftex.def Info: Plot/distribution_human.jpg  used on input line 223.
-(pdftex.def)             Requested size: 320.99846pt x 105.3935pt.
-<Plot/distribution_occlusion.jpg, id=50, 673.3155pt x 209.583pt>
+Package pdftex.def Info: Plot/distribution_target.jpg  used on input line 143.
+(pdftex.def)             Requested size: 277.8803pt x 149.9614pt.
+<Plot/distribution_occlusion.jpg, id=28, 673.3155pt x 209.583pt>
 File: Plot/distribution_occlusion.jpg Graphic file (type jpg)
 <use Plot/distribution_occlusion.jpg>
-Package pdftex.def Info: Plot/distribution_occlusion.jpg  used on input line 230.
+Package pdftex.def Info: Plot/distribution_occlusion.jpg  used on input line 156.
 (pdftex.def)             Requested size: 336.65692pt x 104.79123pt.
-<Plot/distribution_info.jpg, id=51, 627.5445pt x 211.38976pt>
-File: Plot/distribution_info.jpg Graphic file (type jpg)
-<use Plot/distribution_info.jpg>
-Package pdftex.def Info: Plot/distribution_info.jpg  used on input line 237.
-(pdftex.def)             Requested size: 313.77147pt x 105.69461pt.
- [7 <./Plot/distribution_collage.jpg> <./Plot/distribution_human.jpg> <./Plot/distribution_occlusion.jpg>]
-<Plot/distribution_blur.jpg, id=55, 625.73775pt x 208.3785pt>
-File: Plot/distribution_blur.jpg Graphic file (type jpg)
-<use Plot/distribution_blur.jpg>
-Package pdftex.def Info: Plot/distribution_blur.jpg  used on input line 244.
-(pdftex.def)             Requested size: 312.8681pt x 104.18898pt.
- [8 <./Plot/distribution_info.jpg> <./Plot/distribution_blur.jpg>] [9]
-<Plot/efficientnet.png, id=62, 1606.0pt x 1266.7325pt>
+ [3 <./Plot/pawpularity_1.jpg> <./Plot/distribution_target.jpg>]
+<Plot/distribution_action.jpg, id=32, 643.203pt x 211.38976pt>
+File: Plot/distribution_action.jpg Graphic file (type jpg)
+<use Plot/distribution_action.jpg>
+Package pdftex.def Info: Plot/distribution_action.jpg  used on input line 163.
+(pdftex.def)             Requested size: 321.60071pt x 105.69461pt.
+ [4 <./Plot/distribution_occlusion.jpg> <./Plot/distribution_action.jpg>] [5]
+<Plot/efficientnet.png, id=39, 1606.0pt x 1266.7325pt>
 File: Plot/efficientnet.png Graphic file (type png)
 <use Plot/efficientnet.png>
-Package pdftex.def Info: Plot/efficientnet.png  used on input line 291.
+Package pdftex.def Info: Plot/efficientnet.png  used on input line 215.
 (pdftex.def)             Requested size: 240.8896pt x 190.00168pt.
- [10 <./Plot/efficientnet.png>] [11]
-<Plot/Model-Plot.png, id=72, 1033.8625pt x 1406.25375pt>
-File: Plot/Model-Plot.png Graphic file (type png)
-<use Plot/Model-Plot.png>
-Package pdftex.def Info: Plot/Model-Plot.png  used on input line 333.
-(pdftex.def)             Requested size: 361.8573pt x 492.19618pt.
- [12] [13 <./Plot/Model-Plot.png>]
-<Plot/learning-rate.png, id=80, 628.3475pt x 330.23375pt>
-File: Plot/learning-rate.png Graphic file (type png)
-<use Plot/learning-rate.png>
-Package pdftex.def Info: Plot/learning-rate.png  used on input line 350.
-(pdftex.def)             Requested size: 314.17297pt x 165.11646pt.
- [14 <./Plot/learning-rate.png>]
-<Plot/CNN_RMSE.png, id=86, 625.1355pt x 340.3917pt>
-File: Plot/CNN_RMSE.png Graphic file (type png)
-<use Plot/CNN_RMSE.png>
-Package pdftex.def Info: Plot/CNN_RMSE.png  used on input line 377.
-(pdftex.def)             Requested size: 375.08418pt x 204.23659pt.
- [15 <./Plot/CNN_RMSE.png>]
-<Plot/MLP_RMSE.png, id=92, 625.1355pt x 340.3917pt>
-File: Plot/MLP_RMSE.png Graphic file (type png)
-<use Plot/MLP_RMSE.png>
-Package pdftex.def Info: Plot/MLP_RMSE.png  used on input line 388.
-(pdftex.def)             Requested size: 343.82558pt x 187.216pt.
-<Plot/FINAL_RMSE.png, id=93, 625.33624pt x 339.2675pt>
-File: Plot/FINAL_RMSE.png Graphic file (type png)
-<use Plot/FINAL_RMSE.png>
-Package pdftex.def Info: Plot/FINAL_RMSE.png  used on input line 396.
-(pdftex.def)             Requested size: 343.93599pt x 186.59769pt.
- [16 <./Plot/MLP_RMSE.png> <./Plot/FINAL_RMSE.png>]
-<Plot/ALL_RMSE.png, id=99, 614.295pt x 339.2675pt>
+ [6] [7 <./Plot/efficientnet.png>] [8]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Plot/ALL_RMSE.png, id=52, 614.295pt x 339.2675pt>
 File: Plot/ALL_RMSE.png Graphic file (type png)
 <use Plot/ALL_RMSE.png>
-Package pdftex.def Info: Plot/ALL_RMSE.png  used on input line 430.
-(pdftex.def)             Requested size: 368.57983pt x 203.56206pt.
- [17 <./Plot/ALL_RMSE.png>]
-<Plot/GRAD-CAM.png, id=104, 642.14906pt x 314.67563pt>
+Package pdftex.def Info: Plot/ALL_RMSE.png  used on input line 298.
+(pdftex.def)             Requested size: 369.8921pt x 184.94112pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
+<Plot/GRAD-CAM.png, id=58, 642.14906pt x 314.67563pt>
 File: Plot/GRAD-CAM.png Graphic file (type png)
 <use Plot/GRAD-CAM.png>
-Package pdftex.def Info: Plot/GRAD-CAM.png  used on input line 450.
+Package pdftex.def Info: Plot/GRAD-CAM.png  used on input line 312.
 (pdftex.def)             Requested size: 385.2924pt x 188.80682pt.
- [18 <./Plot/GRAD-CAM.png>] (ProjectReport.bbl [19] (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-32.def
+ [10 <./Plot/ALL_RMSE.png>] [11 <./Plot/GRAD-CAM.png>] (ProjectReport.bbl (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)) [20] (ProjectReport.aux) ) 
+))
+<Plot/Model-Plot.png, id=67, 1033.8625pt x 1406.25375pt>
+File: Plot/Model-Plot.png Graphic file (type png)
+<use Plot/Model-Plot.png>
+Package pdftex.def Info: Plot/Model-Plot.png  used on input line 339.
+(pdftex.def)             Requested size: 310.16115pt x 421.87938pt.
+ [12] [13 <./Plot/Model-Plot.png>] (ProjectReport.aux) ) 
 Here is how much of TeX's memory you used:
- 15773 strings out of 478659
- 315265 string characters out of 2845447
- 599320 words of memory out of 3000000
- 33574 multiletter control sequences out of 15000+600000
- 412166 words of font info for 56 fonts, out of 8000000 for 9000
+ 15647 strings out of 478659
+ 311878 string characters out of 2845447
+ 601170 words of memory out of 3000000
+ 33464 multiletter control sequences out of 15000+600000
+ 412620 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,94p,1115b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Mattia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ProjectReport.pdf (21 pages, 2450725 bytes).
+ <C:\Users\Mattia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ProjectReport.pdf (14 pages, 1500270 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
+ 133 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
