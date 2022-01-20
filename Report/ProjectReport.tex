@@ -53,14 +53,14 @@
 
 \textsc{\LARGE Università degli studi di Milano-Bicocca}\\[1cm] % Name of your university/college
 \textsc{\Large Advanced Machine Learning }\\[0.3cm] % Major heading such as course name
-\textsc{\large Final Project}\\[0.1cm] % Minor heading such as course title
+\textsc{\large Progetto Finale}\\[0.1cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries PetFinder.my - Pawpularity Contest}\\[0.4cm] % Title of your document
+{ \huge \bfseries PetFinder.my - Un Approccio Ibrido}\\[0.4cm] % Title of your document
 { \large \textbf{Predizione Della Popolarità Di Foto Di Animali}}
 \HRule \\[1.5cm]
  
@@ -69,7 +69,7 @@
 %----------------------------------------------------------------------------------------
 
 \large
-\emph{Authors:}\\
+\emph{Autori:}\\
 Francesco Lenti - 865274 - f.lenti3@campus.unimib.it \\   % Your name
 Mattia Boller - 873358 - m.boller@campus.unimib.it   \\
 Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
@@ -124,70 +124,38 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
     \subsubsection{Immagini}
     Per quanto riguarda il dataset delle immagini andremo a mostrare alcune foto in base al pawpularity score assegnato.
     Analizziamo quindi le immagini partendo dai voti più bassi andando verso quelli più alti. Per non rendere il report troppo prolisso, sono stati inseriti solo 3 gradi di pawpularity: 1, 50 e 100, il resto dell'analisi è disponibile nel notebook.
+    
+    TODO: Confronto animali con diversa pawpularity
+    
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.5]{Plot/pawpularity_1.jpg}
-        \caption{Animali con Pawpularity=1}
+        \includegraphics[scale=0.4]{Plot/pawpularity_1.jpg}
+        \caption{Confronto animali con diversa pawpularity}
         \label{fig:paw_10}
-    \end{figure}
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.5]{Plot/pawpularity_50.jpg}
-        \caption{Animali con Pawpularity=50}
-        \label{fig:paw_50}
-    \end{figure}
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.5]{Plot/pawpularity_100.jpg}
-        \caption{Animali con Pawpularity=100}
-        \label{fig:paw_100}
     \end{figure}
 
     Dall'analisi visiva effettuata non si evincono particolari dettagli su cosa possa rendere una foto più "popolare" rispetto ad un'altra, è facile, infatti, trovare delle belle foto di animali con score di pawpularity sotto il 10.
 
     \subsubsection{Metadati}
-    Come descritto in precedenza il file \textit{train.csv} contiene i metadati per ogni immagine. In figura \ref{fig:target} visualizziamo la distribuzione del target, ovvero il Pawpularity score.
+    Come descritto in precedenza il file \textit{train.csv} contiene i metadati per ogni immagine. In figura \ref{fig:target} viene visualizzata la distribuzione del target, ovvero il Pawpularity score.
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.8]{Plot/distribution_target.jpg}
+        \includegraphics[scale=0.6]{Plot/distribution_target.jpg}
         \caption{Distribuzione e esempio della feature Focus}
         \label{fig:target}
     \end{figure}
 
-    Osserviamo come la distribuzione dello score sia concentrata principalmente tra i valori 20 e 50. È facile osservare anche una forte presenza di immagini con score uguale a 100.
-    Successivamente analizziamo la distribuzione del target per ogni singola feature del dataset.
+    Si può osservare come la distribuzione dello score sia concentrata principalmente tra i valori 20 e 50 con una forte presenza di immagini con score uguale a 100.
+    Successivamente è stata analizzata la distribuzione del target per ogni singola feature del dataset.
     Per fare ciò usiamo degli istogrammi, mostriamo il Pawpularity score sull'asse x e la somma dei valori di ogni feature sull'asse y. Questo ci può aiutare a visualizzare se alcune feature impattano più di altre nel calcolo del Pawpularity score. Per ogni feature inoltre vengono mostrati degli esempi di immagini per contestualizzare meglio il significato della feature stessa.
 
     \begin{itemize}
-        \item \textbf{Focus} - L'animale è posizionato su uno sfondo ordinato, non troppo vicino/lontano;
+        \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale. Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
         \begin{figure}[H]
             \centering
-            \includegraphics[scale=0.5]{Plot/distribution_subjectfocus.jpg}
-            \caption{Distribuzione e esempio della feature Focus}
-            \label{fig:focus}
-        \end{figure}
-        \item \textbf{Eyes} - Entrambi gli occhi sono rivolti verso l'obiettivo, con almeno un occhio/pupilla decentemente chiaro;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_eyes.jpg}
-            \caption{Distribuzione e esempio della feature Eyes}
-            \label{fig:eyes}
-        \end{figure}
-        \item \textbf{Face} - Viso discretamente chiaro e rivolto in avanti;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_face.jpg}
-            \caption{Distribuzione e esempio della feature Face}
-            \label{fig:face}
-        \end{figure}
-        \item \textbf{Near} - Singolo animale che occupa una porzione significativa della foto (circa oltre il 50\% della larghezza o dell'altezza della foto);
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_near.jpg}
-            \caption{Distribuzione e esempio della feature Near}
-            \label{fig:near}
+            \includegraphics[scale=0.5]{Plot/distribution_occlusion.jpg}
+            \caption{Distribuzione e esempio della feature Occlusion}
+            \label{fig:occlusion}
         \end{figure}
         \item \textbf{Action} - Animale nel mentre di un'azione (ad es. saltare);
         \begin{figure}[H]
@@ -196,61 +164,22 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
             \caption{Distribuzione e esempio della feature Action}
             \label{fig:action}
         \end{figure}
+        \item \textbf{Near} - Singolo animale che occupa una porzione significativa della foto (circa oltre il 50\% della larghezza o dell'altezza della foto);
+        \item \textbf{Focus} - L'animale è posizionato su uno sfondo ordinato, non troppo vicino/lontano;
+        \item \textbf{Eyes} - Entrambi gli occhi sono rivolti verso l'obiettivo, con almeno un occhio/pupilla decentemente chiaro;
+        \item \textbf{Face} - Viso discretamente chiaro e rivolto in avanti;
         \item \textbf{Accessory} - Accessorio/oggetto di accompagnamento fisico o digitale, come un giocattolo o un adesivo digitale, esclusi collare e guinzaglio;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_accessory.jpg}
-            \caption{Distribuzione e esempio della feature Accessory}
-            \label{fig:accessory}
-        \end{figure}
         \item \textbf{Group} - Più di 1 animale nella foto;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_group.jpg}
-            \caption{Distribuzione e esempio della feature Group}
-            \label{fig:group}
-        \end{figure}
         \item \textbf{Collage} - Foto ritoccata digitalmente;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_collage.jpg}
-            \caption{Distribuzione e esempio della feature Collage}
-            \label{fig:collage}
-        \end{figure}
         \item \textbf{Human} - Umano nella foto;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_human.jpg}
-            \caption{Distribuzione e esempio della feature Human}
-            \label{fig:human}
-        \end{figure}
-        \item \textbf{Occlusion} - Oggetti indesiderati che bloccano una parte dell'animale. Nota: Non tutti gli oggetti bloccanti sono considerati occlusione;
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_occlusion.jpg}
-            \caption{Distribuzione e esempio della feature Occlusion}
-            \label{fig:occlusion}
-        \end{figure}
         \item \textbf{Info} - Mesto o etichette personalizzati (ad es. nome dell'animale, descrizione);
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_info.jpg}
-            \caption{Distribuzione e esempio della feature Info}
-            \label{fig:info}
-        \end{figure}
         \item \textbf{Blur} - Notevolmente sfocato o rumoroso, soprattutto per gli occhi e il viso dell'animale. Per le voci Sfocatura, la colonna "Occhi" è sempre impostata su 0.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/distribution_blur.jpg}
-            \caption{Distribuzione e esempio della feature Blur}
-            \label{fig:blur}
-        \end{figure}
     \end{itemize}
     
     Intuitivamente è possibile affermare che questi grafici non diano molte informazioni. La distribuzione del Pawpularity score è simile per ogni feature, in altre parole nessuna feature sembra influenzare particolarmente il Pawpularity score.
     \vfill
 
-\section{Aprroccio metodologico}
+\section{Approccio metodologico}
 
     La competizione proposta da PetFinder.my si presenta come un problema di regressione, con l'obiettivo di creare un modello capace di assegnare un punteggio di attrattività, 
     compreso tra 0 e 100, ad una determinata foto di un animale.
@@ -306,6 +235,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
             \item \textbf{Dropout} - 10\% dei neuroni eliminati.
             \item \textbf{Dense} - 1 neurone, Linear
         \end{itemize}
+
         La funzione di loss scelta è stata la Mean Squared Error, mentre per monitorare le performance è stata utilizzata come metrica la Root Mean Squared Error. Come algoritmo di ottimizzazione è stato selezionato Adam.
 
     \subsection{Fully-connected neural network}
@@ -319,6 +249,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
         \item \textbf{Dropout} - 10\% dei neuroni eliminati.
         \item \textbf{Dense} - 1 neurone, Linear
     \end{itemize}
+
     Anche in questo caso, come per la rete convoluzionale, si sono utilizzate MSE come funzione di loss, RMSE come metrica delle performance del modello e Adam come algoritmo di ottimizzazione.
 
     \subsection{Hybrid DNN}
@@ -328,12 +259,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
     Il modello in questione si presenta come una rete neurale ibrida \cite{yuan2020hybriddnns}, costituita dalla rete convoluzionale illustrata nel paragrafo \ref{cnn} e dalla rete fully-connected di cui si indicano le specifiche nel paragrafo \ref{mlp}, i quali output vengono concatenati e processati da due ulteriori layer.
     L'architettura proposta è mostrata in figura \ref{fig:model}.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.35]{Plot/Model-Plot.png}
-            \caption{Architettura Hybrid DNN}
-            \label{fig:model}
-        \end{figure}
+
 
     \subsection{Training}
     Il training del modello finale descritto nel paragrafo \ref{mulinput}, è avvenuto allenando prima separatamente i due modelli di cui è composto. Entrambe le reti sono state 
@@ -341,23 +267,7 @@ Mattia Marchi - 817587 - m.marchi@campus.unimib.it   \\[1cm] % Your name
 
     I due modelli allenati sono stati successivamente uniti per andare a formare la rete ibrida e i loro pesi sono stati bloccati, così da poter effettuare il training 
     solo sulla sezione aggiunta in seguito alla concatenzaione dei risultati.
-
-    Durante la fase di training del terzo modello, si è riscontrato un fenomeno di blocco in un minimo locale, il quale impediva miglioramenti delle performance. Il problema
-    è stato affrontato effettuando uno studio sul valore ideale di learning rate, ricerca che ha portato alle scelta di un valore pari a 0.1, più alto rispetto ai valori inizialmente
-    adottati. In figura \ref{fig:learning_rate} viene presentato il grafico dello studio che ha portato alla scelta del particolare valore di learning rate.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{Plot/learning-rate.png}
-            \caption{Grafico del valore di loss rispetto a diversi valori di learning rate}
-            \label{fig:learning_rate}
-        \end{figure}
-
     Il modello ibrido è stato allenato con grandezza di batch pari a 32, per un massimo di 30 epoche, anche in questo caso limitate da early-stopping.
-
-
-
-
-\newpage
 
 
 \section{Risultati e Valutazione}
@@ -369,44 +279,8 @@ La metrica usata per la valutazione delle performance, essendo un task di regres
 con $\hat{y}_i$ il valore di popolarità predetto e $y_i$ il valore originale.
 
 
-Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli, figure \ref{fig:rmse-cnn} e \ref{fig:rmse-mlp}, e successivamente, in figura \ref{fig:rmse-final}, sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
-
-
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.6]{Plot/CNN_RMSE.png}
-        \caption{RMSE del modello Efficient-Net B3 su train set (blu) e validation set (arancione) durante le epoche.}
-        \label{fig:rmse-cnn}
-    \end{figure}
-
-\newpage
-
-
-    \begin{figure}[h]
-        \centering
-        \vspace*{-2.5cm}
-        \includegraphics[scale=0.55]{Plot/MLP_RMSE.png}
-        \caption{RMSE del modello Multilayer Perceptron su train set (blu) e validation set (arancione) durante le epoche.}
-        \label{fig:rmse-mlp}
-    \end{figure}
-    
-
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.55]{Plot/FINAL_RMSE.png}
-        \caption{RMSE del modello Hybrid su train set (blu) e validation set (arancione) durante le epoche.}
-        \label{fig:rmse-final}
-    \end{figure}
-    
-\newpage
-
-
-\subsection{Confronto Risultati}
-
-
+Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli e successivamente sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare, in figura \ref{fig:rmse-all} come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
 Nella tabella \ref{table:rmse} vengono raffigurati i valori migliori ottenuti sul validation set per le varie architetture. La figura \ref{fig:rmse-all} mostra l'andamento della metrica RMSE dei differenti modelli nelle varie epoche.
-
-\vspace{1cm}
 
 \begin{table}[h]
 \caption{Confronto RMSE ottenuta tra i diversi modelli sul validation set.}
@@ -426,17 +300,10 @@ Hybrid & 1               \\ \hline
 
 \begin{figure}[h]
     \centering
-    
-    \includegraphics[scale=0.6]{Plot/ALL_RMSE.png}
+    \includegraphics[width=13cm, height=6.5cm]{Plot/ALL_RMSE.png}
     \caption{RMSE modelli a confronto.}
     \label{fig:rmse-all}
 \end{figure}
-
-
-
-
-
-\newpage
 
 
 \subsection{Grad CAM}
@@ -452,10 +319,6 @@ Un problema noto del deep learning è rappresentato dal fatto che i modelli crea
         \label{fig:grad-cam}
 \end{figure}
     
-
-    
-    
-\newpage
 
 
 \section{Considerazioni}
@@ -473,5 +336,13 @@ Un possibile sviluppo futuro, può essere la sostitusione della rete convoluzion
 
 \bibliographystyle{IEEEtran}
 \bibliography{references.bib}
+
+\section{Appendice}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.30]{Plot/Model-Plot.png}
+    \caption{Architettura Hybrid DNN}
+    \label{fig:model}
+\end{figure}
 
 \end{document}
