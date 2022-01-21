@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.5)  20 JAN 2022 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.5)  21 JAN 2022 16:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -433,71 +433,65 @@ File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
-<Plot/pawpularity_1.jpg, id=20, 476.37975pt x 157.18726pt>
-File: Plot/pawpularity_1.jpg Graphic file (type jpg)
-<use Plot/pawpularity_1.jpg>
-Package pdftex.def Info: Plot/pawpularity_1.jpg  used on input line 132.
-(pdftex.def)             Requested size: 190.54851pt x 62.87378pt.
+<Plot/pawpularity_preview.jpg, id=20, 434.5836pt x 162.6075pt>
+File: Plot/pawpularity_preview.jpg Graphic file (type jpg)
+<use Plot/pawpularity_preview.jpg>
+Package pdftex.def Info: Plot/pawpularity_preview.jpg  used on input line 130.
+(pdftex.def)             Requested size: 304.20644pt x 113.82446pt.
  [2]
 <Plot/distribution_target.jpg, id=27, 463.13025pt x 249.93375pt>
 File: Plot/distribution_target.jpg Graphic file (type jpg)
 <use Plot/distribution_target.jpg>
-Package pdftex.def Info: Plot/distribution_target.jpg  used on input line 143.
+Package pdftex.def Info: Plot/distribution_target.jpg  used on input line 141.
 (pdftex.def)             Requested size: 277.8803pt x 149.9614pt.
-<Plot/distribution_occlusion.jpg, id=28, 673.3155pt x 209.583pt>
+ [3 <./Plot/pawpularity_preview.jpg> <./Plot/distribution_target.jpg>]
+<Plot/distribution_occlusion.jpg, id=31, 673.3155pt x 209.583pt>
 File: Plot/distribution_occlusion.jpg Graphic file (type jpg)
 <use Plot/distribution_occlusion.jpg>
-Package pdftex.def Info: Plot/distribution_occlusion.jpg  used on input line 156.
+Package pdftex.def Info: Plot/distribution_occlusion.jpg  used on input line 154.
 (pdftex.def)             Requested size: 336.65692pt x 104.79123pt.
- [3 <./Plot/pawpularity_1.jpg> <./Plot/distribution_target.jpg>]
 <Plot/distribution_action.jpg, id=32, 643.203pt x 211.38976pt>
 File: Plot/distribution_action.jpg Graphic file (type jpg)
 <use Plot/distribution_action.jpg>
-Package pdftex.def Info: Plot/distribution_action.jpg  used on input line 163.
+Package pdftex.def Info: Plot/distribution_action.jpg  used on input line 161.
 (pdftex.def)             Requested size: 321.60071pt x 105.69461pt.
  [4 <./Plot/distribution_occlusion.jpg> <./Plot/distribution_action.jpg>] [5]
 <Plot/efficientnet.png, id=39, 1606.0pt x 1266.7325pt>
 File: Plot/efficientnet.png Graphic file (type png)
 <use Plot/efficientnet.png>
-Package pdftex.def Info: Plot/efficientnet.png  used on input line 215.
+Package pdftex.def Info: Plot/efficientnet.png  used on input line 213.
 (pdftex.def)             Requested size: 240.8896pt x 190.00168pt.
- [6] [7 <./Plot/efficientnet.png>] [8]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Plot/ALL_RMSE.png, id=52, 614.295pt x 339.2675pt>
+ [6] [7 <./Plot/efficientnet.png>] [8] [9]
+<Plot/ALL_RMSE.png, id=56, 614.295pt x 339.2675pt>
 File: Plot/ALL_RMSE.png Graphic file (type png)
 <use Plot/ALL_RMSE.png>
-Package pdftex.def Info: Plot/ALL_RMSE.png  used on input line 298.
+Package pdftex.def Info: Plot/ALL_RMSE.png  used on input line 296.
 (pdftex.def)             Requested size: 369.8921pt x 184.94112pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9]
-<Plot/GRAD-CAM.png, id=58, 642.14906pt x 314.67563pt>
+ [10 <./Plot/ALL_RMSE.png>]
+<Plot/GRAD-CAM.png, id=62, 642.14906pt x 314.67563pt>
 File: Plot/GRAD-CAM.png Graphic file (type png)
 <use Plot/GRAD-CAM.png>
-Package pdftex.def Info: Plot/GRAD-CAM.png  used on input line 312.
+Package pdftex.def Info: Plot/GRAD-CAM.png  used on input line 310.
 (pdftex.def)             Requested size: 385.2924pt x 188.80682pt.
- [10 <./Plot/ALL_RMSE.png>] [11 <./Plot/GRAD-CAM.png>] (ProjectReport.bbl (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-32.def
+ [11 <./Plot/GRAD-CAM.png>] (ProjectReport.bbl (C:\Users\Mattia\AppData\Local\Programs\MiKTeX\tex/latex/ucs\uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ))
 <Plot/Model-Plot.png, id=67, 1033.8625pt x 1406.25375pt>
 File: Plot/Model-Plot.png Graphic file (type png)
 <use Plot/Model-Plot.png>
-Package pdftex.def Info: Plot/Model-Plot.png  used on input line 339.
-(pdftex.def)             Requested size: 310.16115pt x 421.87938pt.
+Package pdftex.def Info: Plot/Model-Plot.png  used on input line 336.
+(pdftex.def)             Requested size: 341.17567pt x 464.06517pt.
  [12] [13 <./Plot/Model-Plot.png>] (ProjectReport.aux) ) 
 Here is how much of TeX's memory you used:
- 15647 strings out of 478659
- 311878 string characters out of 2845447
- 601170 words of memory out of 3000000
- 33464 multiletter control sequences out of 15000+600000
+ 15648 strings out of 478659
+ 311929 string characters out of 2845447
+ 599170 words of memory out of 3000000
+ 33465 multiletter control sequences out of 15000+600000
  412620 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,94p,1115b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,15n,94p,1113b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Mattia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mattia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ProjectReport.pdf (14 pages, 1500270 bytes).
+Output written on ProjectReport.pdf (14 pages, 1862561 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

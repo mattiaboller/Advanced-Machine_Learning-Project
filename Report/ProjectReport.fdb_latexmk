@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex ProjectReport"] 1642692973 "ProjectReport.aux" "ProjectReport.bbl" "ProjectReport" 1642692975
+["bibtex ProjectReport"] 1642776928 "ProjectReport.aux" "ProjectReport.bbl" "ProjectReport" 1642777553
   "C:/Users/Mattia/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "ProjectReport.aux" 1642692975 3835 27849503f07b95f4e56f2167e8b432f0 "pdflatex"
+  "ProjectReport.aux" 1642777552 3842 2e1a996352e891252224a8a6aaf96acc "pdflatex"
   "references.bib" 1641897869 1438 fa44cc640df16060a229f2aa34b557b6 ""
   (generated)
   "ProjectReport.bbl"
   "ProjectReport.blg"
-["pdflatex"] 1642692973 "c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex" "ProjectReport.pdf" "ProjectReport" 1642692975
+["pdflatex"] 1642777550 "c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex" "ProjectReport.pdf" "ProjectReport" 1642777553
   "C:/Users/Mattia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1641898560 81107 70b8516c68c2e617189c5e44bfd16b96 ""
   "C:/Users/Mattia/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1641395037 14064 c2097a52debfb087ca9521f3b919a332 ""
   "C:/Users/Mattia/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1641395029 9770440 e8c7e2dd9778fc72817282f449b1fa8b ""
@@ -146,18 +146,18 @@
   "C:/Users/Mattia/AppData/Local/Programs/MiKTeX/tex/latex/ucs/utf8x.def" 1369148985 8240 21f7ac37aafb6cfeddbb196b8bfd6280 ""
   "C:/Users/Mattia/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
   "C:/Users/Mattia/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623005690 4902 efb3d66683a2da2a232f71e3a571a899 ""
-  "Plot/ALL_RMSE.png" 1641893376 29946 48b229699d669bfd9028e9874d6b2be3 ""
+  "Plot/ALL_RMSE.png" 1642776443 33206 79d101487c431adc9f825169f5a296b4 ""
   "Plot/GRAD-CAM.png" 1641893376 538888 821c03e5a28622270749a02108c5f178 ""
   "Plot/Model-Plot.png" 1641565789 114992 21191ac949298a1c19f0388e95ec3300 ""
   "Plot/distribution_action.jpg" 1641893376 60329 d59f226c041de4a325e07d020932d34d ""
   "Plot/distribution_occlusion.jpg" 1641893376 83754 e96943663fd40639bbaaf2b2389b25c9 ""
   "Plot/distribution_target.jpg" 1641893376 55777 a419b23dae53fd308eee3fe8104b4bcf ""
   "Plot/efficientnet.png" 1641893405 224793 a7bc3b330dfd8d697ed58528ed3fc361 ""
-  "Plot/pawpularity_1.jpg" 1641893376 65009 730fdaaae48e2d10099149c99e54a441 ""
-  "ProjectReport.aux" 1642692975 3835 27849503f07b95f4e56f2167e8b432f0 "pdflatex"
-  "ProjectReport.bbl" 1642692973 1762 a91886abe58d319438eb0773acb98e99 "bibtex ProjectReport"
-  "ProjectReport.tex" 1642692969 24440 ba6ead0b04c75f72535678cd632fd869 ""
-  "c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex" 1642692969 24440 ba6ead0b04c75f72535678cd632fd869 ""
+  "Plot/pawpularity_preview.jpg" 1642776234 423302 a7aa6c561bb91a0fbea2e2fefe32dbbc ""
+  "ProjectReport.aux" 1642777552 3842 2e1a996352e891252224a8a6aaf96acc "pdflatex"
+  "ProjectReport.bbl" 1642776929 1762 a91886abe58d319438eb0773acb98e99 "bibtex ProjectReport"
+  "ProjectReport.tex" 1642777549 24360 d72202e4482cea8b96175f7d90ed4e4f ""
+  "c:/Users/Mattia/Documents/GitHub/Advanced-Machine_Learning-Project/Report/ProjectReport.tex" 1642777549 24360 d72202e4482cea8b96175f7d90ed4e4f ""
   "logo.png" 1641393340 15403 ec49504026331af507ca4b505dbd3b29 ""
   (generated)
   "ProjectReport.aux"

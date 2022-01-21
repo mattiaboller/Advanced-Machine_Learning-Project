@@ -272,19 +272,19 @@ La metrica usata per la valutazione delle performance, essendo un task di regres
 con $\hat{y}_i$ il valore di popolarità predetto e $y_i$ il valore originale.
 
 
-Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli e successivamente sul modello finale ottenuto tramite la concatenazione dei primi due. E' possibile notare, in figura \ref{fig:rmse-all} come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere senza migliorare sul validation set. 
-Nella tabella \ref{table:rmse} vengono raffigurati i valori migliori ottenuti sul validation set per le varie architetture. La figura \ref{fig:rmse-all} mostra l'andamento della metrica RMSE dei differenti modelli nelle varie epoche.
+Le performance vengono valutate nelle varie epoche, sia sul training set che sul validation set. Tale valutazione viene effettuata prima sui singoli modelli e successivamente sul modello finale, ottenuto tramite la concatenazione dei primi due. E' possibile notare, in figura \ref{fig:rmse-all} come nella rete finale non ci sia traccia di overfitting, a differenza del modello ottenuto dalla rete convoluzionale in cui, sul train set, lo score continua a decrescere con un peggioramento sul validation set. 
+Nella tabella \ref{table:rmse} vengono raffigurati i valori migliori ottenuti sul validation set per le varie architetture.
 
-\begin{table}[h]
-\caption{Confronto RMSE ottenuta tra i diversi modelli sul validation set.}
+\begin{table}[H]
+\caption{Confronto performance ottenute tra i diversi modelli sul validation set.}
   \vspace{3mm}
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-\textbf{Modello}   & \textbf{RMSE Validation} \\ \hline \hline
-Efficient-Net B3      & 1               \\ \hline
-MLP       & 1               \\ \hline
-Hybrid & 1               \\ \hline
+\textbf{Modello} & \textbf{RMSE Validation} & \textbf{MSE Loss} \\ \hline \hline
+CNN     & 17.56           & 308.307  \\ \hline 
+MLP     & 20.12           & 404.98   \\ \hline 
+Hybrid  & 17.31           & 299.74   \\ \hline
 \end{tabular}
 \label{table:rmse}
 \end{table}
@@ -301,7 +301,7 @@ Hybrid & 1               \\ \hline
 
 \subsection{Grad CAM}
 
-Un problema noto del deep learning è rappresentato dal fatto che i modelli creati siano "black box", ovvero che sia difficilmente spiegabile come realmente le informazioni siano trattate all'interno dei vari layers. Per analizzare i risultati ottenuti è stato ritenuto opportuno effettuare un ulteriore studio su come la rete convoluzionale ragionasse sulle immagini per ottenere lo score di popolarità. Questo è possibile utilizzando lo strumento \textbf{Grad CAM}\cite{2019}. Tale metodo consente di produrre una spiegazione visiva di ciò che la rete osserva, determinando quali sono gli aspetti e le features che più influenzano lo score finale. E' possibile notare nella figura \ref{fig:grad-cam} come la rete si vada a focalizzare maggiormente sull'animale nel caso in cui l'immagine risulti pulita da oggetti di disturbo; al contrario, se l'immagine presenta disturbi di vario genere, la rete andrà a dare maggior importanza all'ambiente circostante piuttosto che al solo animale.
+Un problema noto del deep learning è rappresentato dal fatto che i modelli creati siano "black box", ovvero che sia difficilmente spiegabile come realmente le informazioni siano trattate all'interno dei vari layer. Per analizzare i risultati ottenuti è stato ritenuto opportuno effettuare un ulteriore studio su come la rete convoluzionale ragionasse sulle immagini per ottenere lo score di popolarità. Questo è possibile utilizzando lo strumento \textbf{Grad CAM}\cite{2019}. Tale metodo consente di produrre una spiegazione visiva di ciò che la rete osserva, determinando quali sono gli aspetti e le feature che più influenzano lo score finale. E' possibile notare nella figura \ref{fig:grad-cam} come la rete si vada a focalizzare maggiormente sull'animale nel caso in cui l'immagine risulti pulita da oggetti di disturbo; al contrario, se l'immagine presenta disturbi di vario genere, la rete andrà a dare maggior importanza all'ambiente circostante piuttosto che al solo animale.
 
 \vspace{1cm}
 
@@ -316,14 +316,13 @@ Un problema noto del deep learning è rappresentato dal fatto che i modelli crea
 
 \section{Considerazioni}
 
-I risultati mostrano come le performance ottenute dal modello finale siano migliori di quelle ottenute tramite il solo fine-tuning sulla rete Efficient-Net B3 e nettamente migliori di quelli del Multilayer Perceptron sui meta-dati. Questo è dovuto da un utilizzo di tutte le informazioni disponibili e non solo le immagini: il layer fully-connected del modello finale riesce a dare i giusti pesi alle informazioni ottenute dalla rete convoluzionale, per le immagini, e da quella fully-connected, per i meta-dati, migliorando il risultato finale. Le performance ottenute risultano migliori di quelle raggiunte da altri team kaggle utilizzanti reti convoluzionali allo stato dell'arte. I migliori risultati tuttavia vengono ottenuti da team che sfruttano un altro tipo di modello, ovvero i \textbf{transformer}, migliorando lo score finale di un punto rispetto all'utilizzo di reti convoluzionali.
+I risultati mostrano come le performance ottenute dal modello finale siano migliori di quelle ottenute tramite il solo fine-tuning sulla rete Efficient-Net B3 e nettamente migliori di quelli del Multilayer Perceptron sui meta-dati. Questo è probabilmente dovuto da un utilizzo combinato di tutte le informazioni disponibili: il layer fully-connected del modello finale riesce a dare i giusti pesi alle informazioni ottenute dalla rete convoluzionale, per le immagini, e da quella fully-connected, per i meta-dati, migliorando il risultato finale. Le performance ottenute risultano migliori di quelle raggiunte da altri team Kaggle che utilizzano reti convoluzionali allo stato dell'arte. I migliori risultati tuttavia vengono ottenuti da team che sfruttano un altro tipo di modello, ovvero i \textbf{transformer}, migliorando lo score finale di un punto di RMSE rispetto all'utilizzo di reti convoluzionali.
 
 
 \section{Conclusioni e sviluppi futuri}
-L'obiettivo di questo caso di studio è stato determinare se, l'uso congiunto di architetture su tipologie di dati diverse, potesse portare effettivamente a migliori risultati rispetto
-alle singole.
+L'obiettivo di questo caso di studio è stato determinare se, l'uso congiunto di diversi modelli su tipologie di dati differenti, potesse effettivamente portare  a migliori risultati rispetto ai singoli.
 
-L'ipotesi formulata, sebbene non supportata da una grande quantità di materiale presente in letteratura, è stata confermata dai risultati ottenuti portando un miglioramento significativo delle performance. Tuttavia i risultati ottenuti non sono competitivi rispetto a quelli derivanti dall'utilizzo di nuove tecniche avanzate, quali transformer.
+L'ipotesi formulata, sebbene non supportata da una grande quantità di materiale presente in letteratura, è stata confermata empiricamente dai risultati ottenuti portando ad un miglioramento significativo delle performance. Tuttavia i risultati ottenuti non sono competitivi rispetto a quelli derivanti dall'utilizzo di nuove tecniche avanzate, quali transformer.
 
 Un possibile sviluppo futuro, può essere la sostitusione della rete convoluzionale con un transformer e l'utilizzo di una risoluzione maggiore per le immagini, migliorie che devono essere necessariamente supportate da un hardware adeguato.
 
@@ -334,7 +333,7 @@ Un possibile sviluppo futuro, può essere la sostitusione della rete convoluzion
 \section{Modello della rete}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.30]{Plot/Model-Plot.png}
+    \includegraphics[scale=0.33]{Plot/Model-Plot.png}
     \caption{Architettura Hybrid DNN}
     \label{fig:model}
 \end{figure}
