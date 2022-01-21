@@ -4,18 +4,18 @@ Per la riproducibilità del progetto è necessario effettuare il download del da
 
 Di seguito si illustra la struttura di cartelle da seguire:
 
-/Progetto
+    /cartella_progetto
 
-    efficientnet-aml.ipynb
+        efficientnet-aml.ipynb
 
-    /input
+        /input
 
-        /petfinder-pawpularity-score
-            .
-            .
-            .
+            /petfinder-pawpularity-score
+                .
+                .
+                .
 
-        /noisystudentkeras
-            .
-            .
-            .
+            /noisystudentkeras
+                .
+                .
+                .
