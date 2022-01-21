@@ -16,6 +16,5 @@ Di seguito si illustra la struttura di cartelle da seguire:
                 .
 
             /noisystudentkeras
-                .
-                .
-                .
+                
+                noisystudent_efficientnetb3_notop.h5
